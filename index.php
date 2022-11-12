@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -11,20 +12,35 @@ if(isset($_POST['login'])){
 	$sql="SELECT * FROM user WHERE userName ='$username' AND userPassword ='$password' ";
 // Dùng hàm mysqli_query để thực thi truy vấn từ cơ sở dữ liệu và trả về kết quả
 	$result = mysqli_query($connect, $sql);
+	$email = $_POST['Uemail'];
+	$password = $_POST['Upassword'];
+ // chọn trong bảng users, dòng nào có username = $username và password = $password
+	$sql="SELECT * FROM user WHERE email ='$email' AND password ='$password' ";
+// Dùng hàm mysqli_query để thực thi truy vấn từ cơ sở dữ liệu và trả về kết quả
+	$result = mysqli_query($conn, $sql);
+
  // Trả kết quả các hàng trong bảng được truy vấn --> dùng hàm //mysqli_num_row($result)
 	$data = mysqli_fetch_array($result);
 	$check_login = mysqli_num_rows($result);
  // Nếu tìm thấy kết quả, tức là tìm thấy trong các hàng có username = $username và password = $password ---> check_login > 0
 	if (is_array($data)) {
 
+
 		$_SESSION["userName"] = $data ['userName'];
 		$_SESSION["userPassword"] = $data ['userPassword'];
 		$_SESSION["fullname"] = $data ['fullname'];
+
+		$_SESSION["username"] = $data ['username'];
+		$_SESSION["password"] = $data ['password'];
+		$_SESSION["fullname"] = $data ['fullname'];
+      $_SESSION["roleid"] = $data ['roleid'];
+
 	}
 	else{
 		echo"<script>alert('Incorrect account or password!')</script>";
 	}
 }
+
 
 
 if (isset($_SESSION["userName"])) {
@@ -37,6 +53,19 @@ if (isset($_SESSION["userName"])) {
 	}
 }
 ?>
+
+<?php
+if (isset($_SESSION["roleid"])) {
+	if ($_SESSION["roleid"]=="1") {
+		header('location:home.php');
+	}
+	else{
+	header("location:student-dashboard.php");
+	$_SESSION["userid"] = $data ['userid'];
+	}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <!-- Mirrored from preschool.dreamguystech.com/html-template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:39 GMT -->
@@ -57,21 +86,21 @@ if (isset($_SESSION["userName"])) {
             <div class="container">
                <div class="loginbox">
                   <div class="login-left">
-                     <img class="img-fluid" src="assets/img/logo.png" alt="Logo">
+                     <img class="img-fluid" src="assets/img/logo-white.png" alt="Logo">
                   </div>
                   <div class="login-right">
                      <div class="login-right-wrap">
                         <h1>Login</h1>
                         <p class="account-subtitle">Access to our dashboard</p>
-                        <form action="https://preschool.dreamguystech.com/html-template/index.html">
+                        <form action="" method="POST">
                            <div class="form-group">
-                              <input class="form-control" type="text" placeholder="Email">
+                              <input class="form-control" name="Uemail" type="text" placeholder="Email">
                            </div>
                            <div class="form-group">
-                              <input class="form-control" type="text" placeholder="Password">
+                              <input class="form-control" name="Upassword" type="password" placeholder="Password">
                            </div>
                            <div class="form-group">
-                              <button class="btn btn-primary btn-block" type="submit">Login</button>
+                              <button class="btn btn-primary btn-block" name="login" type="submit">Login</button>
                            </div>
                         </form>
                         <div class="text-center forgotpass"><a href="forgot-password.html">Forgot Password?</a></div>
