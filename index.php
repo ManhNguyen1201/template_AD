@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream:login.html
-=======
 <?php
 session_start();
 
@@ -40,7 +38,6 @@ if (isset($_SESSION["roleid"])) {
 	}
 }
 ?>
->>>>>>> Stashed changes:index.php
 <!DOCTYPE html>
 <html lang="en">
    <!-- Mirrored from preschool.dreamguystech.com/html-template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:39 GMT -->
