@@ -383,7 +383,7 @@
                                  </div>
                                </form>
                                <?php
-                               include './config/connect.php';
+                               include 'connect.php';
                                if (isset($_POST['add_students'])) {
                                    $userid = $_POST['userid'];
                                    $username = $_POST['username'];

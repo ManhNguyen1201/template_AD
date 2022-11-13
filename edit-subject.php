@@ -1,3 +1,41 @@
+<?php
+session_start();
+include 'connect.php';
+$teacher = mysqli_query($conn, 'SELECT * FROM user WHERE roleid = 2');
+?>
+<?php
+$id = $_GET['id'];
+$sql = "SELECT * FROM  subject,user WHERE subject.userid = user.userid = $id";
+$result = mysqli_query($conn, $sql); //tra ket qua 1 mang
+while ($row = mysqli_fetch_assoc($result)) {
+    $subjectid = $row['subjectid'];
+    $subjectname = $row['subjectname'];
+    $subjectdes = $row['subjectdes'];
+    $userid = $row['userid'];
+
+    $fullname = $row['fullname'];
+}
+if (isset($_POST['update_subject'])) {
+    $Sname = $_POST['Sname'];
+    $Sdes = $_POST['Sdes'];
+    $Suerid = $_POST['Suserid'];
+    if ($_POST['Sname'] == '') {
+        $Sname = $subjectname;
+    }
+    if ($_POST['Sdes'] == '') {
+        $Sdes = $subjectdes;
+    }
+    if ($_POST['Suserid'] == '') {
+        $Suerid = $userid;
+    }
+    $sql_up = " UPDATE subject SET subjectname = '$Sname',subjectdes= '$Sdes',userid='$Suserid' WHERE subjectid = $subjectid";
+    $update_subject = mysqli_query($conn, $sql_up);
+    if ($update_subject) {
+        header('location:subject.php');
+        echo "<script>alert('Subject Has Been updated successfully!')</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,15 +56,14 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-@extends('profile')
-@section('content')
+
 <div class="main-wrapper">
 
 <div class="header">
 
 <div class="header-left">
 <a href="index.html" class="logo">
-    <img src="assets/img/logo.png" alt="Logo">
+<img src="assets/img/logo.png" alt="Logo">
 </a>
 <a href="index.html" class="logo logo-small">
 <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
@@ -365,7 +402,7 @@
 
 </div>
 
-@endsection
+
 <script src="assets/js/jquery-3.6.0.min.js"></script>
 
 <script src="assets/js/popper.min.js"></script>
