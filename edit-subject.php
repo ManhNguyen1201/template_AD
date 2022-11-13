@@ -18,14 +18,15 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
+@extends('profile')
+@section('content')
 <div class="main-wrapper">
 
 <div class="header">
 
 <div class="header-left">
 <a href="index.html" class="logo">
-<img src="assets/img/logo.png" alt="Logo">
+    <img src="assets/img/logo.png" alt="Logo">
 </a>
 <a href="index.html" class="logo logo-small">
 <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
@@ -364,7 +365,7 @@
 
 </div>
 
-
+@endsection
 <script src="assets/js/jquery-3.6.0.min.js"></script>
 
 <script src="assets/js/popper.min.js"></script>

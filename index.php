@@ -1,40 +1,36 @@
 <?php
 session_start();
 
-include('connect.php');
+include 'connect.php';
 
-if(isset($_POST['login'])){
- // Lấy dữ liệu được nhập từ form , kiểm tra so với dữ liệu ở database
-	$username = $_POST['userName'];
-	$password = $_POST['userPassword'];
- // chọn trong bảng users, dòng nào có username = $username và password = $password
-	$sql="SELECT * FROM user WHERE userName ='$username' AND userPassword ='$password' ";
-// Dùng hàm mysqli_query để thực thi truy vấn từ cơ sở dữ liệu và trả về kết quả
-	$result = mysqli_query($connect, $sql);
- // Trả kết quả các hàng trong bảng được truy vấn --> dùng hàm //mysqli_num_row($result)
-	$data = mysqli_fetch_array($result);
-	$check_login = mysqli_num_rows($result);
- // Nếu tìm thấy kết quả, tức là tìm thấy trong các hàng có username = $username và password = $password ---> check_login > 0
-	if (is_array($data)) {
-
-		$_SESSION["userName"] = $data ['userName'];
-		$_SESSION["userPassword"] = $data ['userPassword'];
-		$_SESSION["fullname"] = $data ['fullname'];
-	}
-	else{
-		echo"<script>alert('Incorrect account or password!')</script>";
-	}
+if (isset($_POST['login'])) {
+    // Lấy dữ liệu được nhập từ form , kiểm tra so với dữ liệu ở database
+    $username = $_POST['userName'];
+    $password = $_POST['userPassword'];
+    // chọn trong bảng users, dòng nào có username = $username và password = $password
+    $sql = "SELECT * FROM user WHERE userName ='$username' AND userPassword ='$password' ";
+    // Dùng hàm mysqli_query để thực thi truy vấn từ cơ sở dữ liệu và trả về kết quả
+    $result = mysqli_query($connect, $sql);
+    // Trả kết quả các hàng trong bảng được truy vấn --> dùng hàm //mysqli_num_row($result)
+    $data = mysqli_fetch_array($result);
+    $check_login = mysqli_num_rows($result);
+    // Nếu tìm thấy kết quả, tức là tìm thấy trong các hàng có username = $username và password = $password ---> check_login > 0
+    if (is_array($data)) {
+        $_SESSION['userName'] = $data['userName'];
+        $_SESSION['userPassword'] = $data['userPassword'];
+        $_SESSION['fullname'] = $data['fullname'];
+    } else {
+        echo "<script>alert('Incorrect account or password!')</script>";
+    }
 }
 
-
-if (isset($_SESSION["userName"])) {
-	if ($_SESSION["userName"]=="admin") {
-		header('location:admin/admin.php');
-	}
-	else{
-	header("location:index.php");
-	$_SESSION["userID"] = $data ['userID'];
-	}
+if (isset($_SESSION['userName'])) {
+    if ($_SESSION['userName'] == 'admin') {
+        header('location:admin/admin.php');
+    } else {
+        header('location:index.php');
+        $_SESSION['userID'] = $data['userID'];
+    }
 }
 ?>
 <!DOCTYPE html>

@@ -36,7 +36,7 @@
             <a class="mobile_btn" id="mobile_btn">
             <i class="fas fa-bars"></i>
             </a>
-            <ul class="nav user-menu">
+            <ul c`lass="nav user-menu">
                <li class="nav-item dropdown noti-dropdown">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <i class="far fa-bell"></i> <span class="badge badge-pill">3</span>
@@ -320,8 +320,7 @@
                                        <th>Dob</th>
                                        <th>Gender</th>
                                        <th>Address</th>                                    
-                                       <th>Mobile Number</th>
-                                      
+                                       <th>Mobile Number</th>                                      
                                        <th>Role_id</th>
                                        <th class="text-right">Action
 
