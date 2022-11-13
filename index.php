@@ -1,36 +1,41 @@
 <?php
 session_start();
+   
+include('connect.php');
 
-include 'connect.php';
+if(isset($_POST['login'])){
+ // Lấy dữ liệu được nhập từ form , kiểm tra so với dữ liệu ở database
+	$email = $_POST['Uemail'];
+	$password = $_POST['Upassword'];
+ // chọn trong bảng users, dòng nào có username = $username và password = $password
+	$sql="SELECT * FROM user WHERE email ='$email' AND password ='$password' ";
+// Dùng hàm mysqli_query để thực thi truy vấn từ cơ sở dữ liệu và trả về kết quả
+	$result = mysqli_query($conn, $sql);
+ // Trả kết quả các hàng trong bảng được truy vấn --> dùng hàm //mysqli_num_row($result)
+	$data = mysqli_fetch_array($result);
+	$check_login = mysqli_num_rows($result);
+ // Nếu tìm thấy kết quả, tức là tìm thấy trong các hàng có username = $username và password = $password ---> check_login > 0
+	if (is_array($data)) {
 
-if (isset($_POST['login'])) {
-    // Lấy dữ liệu được nhập từ form , kiểm tra so với dữ liệu ở database
-    $username = $_POST['userName'];
-    $password = $_POST['userPassword'];
-    // chọn trong bảng users, dòng nào có username = $username và password = $password
-    $sql = "SELECT * FROM user WHERE userName ='$username' AND userPassword ='$password' ";
-    // Dùng hàm mysqli_query để thực thi truy vấn từ cơ sở dữ liệu và trả về kết quả
-    $result = mysqli_query($connect, $sql);
-    // Trả kết quả các hàng trong bảng được truy vấn --> dùng hàm //mysqli_num_row($result)
-    $data = mysqli_fetch_array($result);
-    $check_login = mysqli_num_rows($result);
-    // Nếu tìm thấy kết quả, tức là tìm thấy trong các hàng có username = $username và password = $password ---> check_login > 0
-    if (is_array($data)) {
-        $_SESSION['userName'] = $data['userName'];
-        $_SESSION['userPassword'] = $data['userPassword'];
-        $_SESSION['fullname'] = $data['fullname'];
-    } else {
-        echo "<script>alert('Incorrect account or password!')</script>";
-    }
+		$_SESSION["username"] = $data ['username'];
+		$_SESSION["password"] = $data ['password'];
+		$_SESSION["fullname"] = $data ['fullname'];
+      $_SESSION["roleid"] = $data ['roleid'];
+	}
+	else{
+		echo"<script>alert('Incorrect account or password!')</script>";
+	}
 }
 
-if (isset($_SESSION['userName'])) {
-    if ($_SESSION['userName'] == 'admin') {
-        header('location:admin/admin.php');
-    } else {
-        header('location:index.php');
-        $_SESSION['userID'] = $data['userID'];
-    }
+
+if (isset($_SESSION["roleid"])) {
+	if ($_SESSION["roleid"]=="1") {
+		header('location:home.php');
+	}
+	else{
+	header("location:student-dashboard.php");
+	$_SESSION["userid"] = $data ['userid'];
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -53,21 +58,21 @@ if (isset($_SESSION['userName'])) {
             <div class="container">
                <div class="loginbox">
                   <div class="login-left">
-                     <img class="img-fluid" src="assets/img/logo.png" alt="Logo">
+                     <img class="img-fluid" src="assets/img/logo-white.png" alt="Logo">
                   </div>
                   <div class="login-right">
                      <div class="login-right-wrap">
                         <h1>Login</h1>
                         <p class="account-subtitle">Access to our dashboard</p>
-                        <form action="https://preschool.dreamguystech.com/html-template/index.html">
+                        <form action="" method="POST">
                            <div class="form-group">
-                              <input class="form-control" type="text" placeholder="Email">
+                              <input class="form-control" name="Uemail" type="text" placeholder="Email">
                            </div>
                            <div class="form-group">
-                              <input class="form-control" type="text" placeholder="Password">
+                              <input class="form-control" name="Upassword" type="password" placeholder="Password">
                            </div>
                            <div class="form-group">
-                              <button class="btn btn-primary btn-block" type="submit">Login</button>
+                              <button class="btn btn-primary btn-block" name="login" type="submit">Login</button>
                            </div>
                         </form>
                         <div class="text-center forgotpass"><a href="forgot-password.html">Forgot Password?</a></div>
