@@ -26,10 +26,10 @@
 <div class="header">
 
 <div class="header-left">
-<a href="index.html" class="logo">
+<a href="index.php" class="logo">
 <img src="assets/img/logo.png" alt="Logo">
 </a>
-<a href="index.html" class="logo logo-small">
+<a href="index.php" class="logo logo-small">
 <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
 </a>
 </div>
@@ -168,10 +168,10 @@
 <li class="submenu active">
 <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="students.html">Student List</a></li>
-<li><a href="student-details.html" class="active">Student View</a></li>
-<li><a href="add-student.html">Student Add</a></li>
-<li><a href="edit-student.html">Student Edit</a></li>
+<li><a href="students.php">Student List</a></li>
+<li><a href="student-details.php" class="active">Student View</a></li>
+<li><a href="add-student.php">Student Add</a></li>
+<li><a href="edit-students.php">Student Edit</a></li>
 </ul>
 </li>
 <li class="submenu">
