@@ -308,12 +308,7 @@
                                     <h5 class="form-title"><span>Student Information</span></h5>
                                  </div>
                                  <form>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>User-ID</label>
-                                       <input type="text" class="form-control" name="userid">
-                                    </div>
-                                 </div>
+                                
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>User-Name</label>
