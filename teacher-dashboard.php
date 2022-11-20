@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 
-<!-- Mirrored from preschool.dreamguystech.com/html-template/teacher-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:40 GMT -->
+<!-- Mirrored from preschool.dreamguystech.com/php-template/student-dashboard.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:43 GMT -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -26,10 +26,10 @@
 <div class="header">
 
 <div class="header-left">
-<a href="index.html" class="logo">
+<a href="index.php" class="logo">
 <img src="assets/img/logo.png" alt="Logo">
 </a>
-<a href="index.html" class="logo logo-small">
+<a href="index.php" class="logo logo-small">
 <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
 </a>
 </div>
@@ -139,9 +139,9 @@
 <p class="text-muted mb-0">Administrator</p>
 </div>
 </div>
-<a class="dropdown-item" href="profile.html">My Profile</a>
-<a class="dropdown-item" href="inbox.html">Inbox</a>
-<a class="dropdown-item" href="login.html">Logout</a>
+<a class="dropdown-item" href="profile.php">My Profile</a>
+<a class="dropdown-item" href="inbox.php">Inbox</a>
+<a class="dropdown-item" href="login.php">Logout</a>
 </div>
 </li>
 
@@ -160,43 +160,43 @@
 <li class="submenu active">
 <a href="#"><i class="fas fa-user-graduate"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="index.html">Admin Dashboard</a></li>
-<li><a href="teacher-dashboard.html" class="active">Teacher Dashboard</a></li>
-<li><a href="student-dashboard.html">Student Dashboard</a></li>
+<li><a href="index.php">Admin Dashboard</a></li>
+<li><a href="teacher-dashboard.php">Teacher Dashboard</a></li>
+<li><a href="student-dashboard.php" class="active">Student Dashboard</a></li>
 </ul>
 </li>
 <li class="submenu">
-<a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
+<a href="students.php"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="students.html">Student List</a></li>
-<li><a href="student-details.html">Student View</a></li>
-<li><a href="add-student.html">Student Add</a></li>
-<li><a href="edit-student.html">Student Edit</a></li>
+<li><a href="students.php">Student List</a></li>
+<li><a href="student-details.php">Student View</a></li>
+<li><a href="add-student.php">Student Add</a></li>
+<li><a href="edit-students.php">Student Edit</a></li>
 </ul>
 </li>
 <li class="submenu">
 <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="teachers.html">Teacher List</a></li>
-<li><a href="teacher-details.html">Teacher View</a></li>
-<li><a href="add-teacher.html">Teacher Add</a></li>
-<li><a href="edit-teacher.html">Teacher Edit</a></li>
+<li><a href="teachers.php">Teacher List</a></li>
+<li><a href="teacher-details.php">Teacher View</a></li>
+<li><a href="add-teacher.php">Teacher Add</a></li>
+<li><a href="edit-teacher.php">Teacher Edit</a></li>
 </ul>
 </li>
 <li class="submenu">
 <a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span class="menu-arrow"></span></a>
-<ul>
-<li><a href="departments.html">Department List</a></li>
-<li><a href="add-department.html">Department Add</a></li>
-<li><a href="edit-department.html">Department Edit</a></li>
-</ul>
+<!-- <ul>
+<li><a href="departments.php">Department List</a></li>
+<li><a href="add-department.php">Department Add</a></li>
+<li><a href="edit-department.php">Department Edit</a></li>
+</ul> -->
 </li>
 <li class="submenu">
 <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="subjects.html">Subject List</a></li>
-<li><a href="add-subject.html">Subject Add</a></li>
-<li><a href="edit-subject.html">Subject Edit</a></li>
+<li><a href="subjects.php">Subject List</a></li>
+<li><a href="add-subject.php">Subject Add</a></li>
+<li><a href="edit-subject.php">Subject Edit</a></li>
 </ul>
 </li>
 <li class="menu-title">
@@ -205,31 +205,31 @@
 <li class="submenu">
 <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span> Accounts</span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="fees-collections.html">Fees Collection</a></li>
-<li><a href="expenses.html">Expenses</a></li>
-<li><a href="salary.html">Salary</a></li>
-<li><a href="add-fees-collection.html">Add Fees</a></li>
-<li><a href="add-expenses.html">Add Expenses</a></li>
-<li><a href="add-salary.html">Add Salary</a></li>
+<li><a href="fees-collections.php">Fees Collection</a></li>
+<li><a href="expenses.php">Expenses</a></li>
+<li><a href="salary.php">Salary</a></li>
+<li><a href="add-fees-collection.php">Add Fees</a></li>
+<li><a href="add-expenses.php">Add Expenses</a></li>
+<li><a href="add-salary.php">Add Salary</a></li>
 </ul>
 </li>
 <li>
-<a href="holiday.html"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
+<a href="holiday.php"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
 </li>
 <li>
-<a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
+<a href="fees.php"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
 </li>
 <li>
-<a href="exam.html"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
+<a href="exam.php"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
 </li>
 <li>
-<a href="event.html"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
+<a href="event.php"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
 </li>
 <li>
-<a href="time-table.html"><i class="fas fa-table"></i> <span>Time Table</span></a>
+<a href="time-table.php"><i class="fas fa-table"></i> <span>Time Table</span></a>
 </li>
 <li>
-<a href="library.html"><i class="fas fa-book"></i> <span>Library</span></a>
+<a href="library.php"><i class="fas fa-book"></i> <span>Library</span></a>
 </li>
 <li class="menu-title">
 <span>Pages</span>
@@ -237,49 +237,49 @@
 <li class="submenu">
 <a href="#"><i class="fas fa-shield-alt"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="login.html">Login</a></li>
-<li><a href="register.html">Register</a></li>
-<li><a href="forgot-password.html">Forgot Password</a></li>
-<li><a href="error-404.html">Error Page</a></li>
+<li><a href="login.php">Login</a></li>
+<li><a href="register.php">Register</a></li>
+<li><a href="forgot-password.php">Forgot Password</a></li>
+<li><a href="error-404.php">Error Page</a></li>
 </ul>
 </li>
 <li>
-<a href="blank-page.html"><i class="fas fa-file"></i> <span>Blank Page</span></a>
+<a href="blank-page.php"><i class="fas fa-file"></i> <span>Blank Page</span></a>
 </li>
 <li class="menu-title">
 <span>Others</span>
 </li>
 <li>
-<a href="sports.html"><i class="fas fa-baseball-ball"></i> <span>Sports</span></a>
+<a href="sports.php"><i class="fas fa-baseball-ball"></i> <span>Sports</span></a>
 </li>
 <li>
-<a href="hostel.html"><i class="fas fa-hotel"></i> <span>Hostel</span></a>
+<a href="hostel.php"><i class="fas fa-hotel"></i> <span>Hostel</span></a>
 </li>
 <li>
-<a href="transport.html"><i class="fas fa-bus"></i> <span>Transport</span></a>
+<a href="transport.php"><i class="fas fa-bus"></i> <span>Transport</span></a>
 </li>
 <li class="menu-title">
 <span>UI Interface</span>
 </li>
 <li>
-<a href="components.html"><i class="fas fa-vector-square"></i> <span>Components</span></a>
+<a href="components.php"><i class="fas fa-vector-square"></i> <span>Components</span></a>
 </li>
 <li class="submenu">
 <a href="#"><i class="fas fa-columns"></i> <span> Forms </span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="form-basic-inputs.html">Basic Inputs </a></li>
-<li><a href="form-input-groups.html">Input Groups </a></li>
-<li><a href="form-horizontal.html">Horizontal Form </a></li>
-<li><a href="form-vertical.html"> Vertical Form </a></li>
-<li><a href="form-mask.html"> Form Mask </a></li>
-<li><a href="form-validation.html"> Form Validation </a></li>
+<li><a href="form-basic-inputs.php">Basic Inputs </a></li>
+<li><a href="form-input-groups.php">Input Groups </a></li>
+<li><a href="form-horizontal.php">Horizontal Form </a></li>
+<li><a href="form-vertical.php"> Vertical Form </a></li>
+<li><a href="form-mask.php"> Form Mask </a></li>
+<li><a href="form-validation.php"> Form Validation </a></li>
 </ul>
 </li>
 <li class="submenu">
 <a href="#"><i class="fas fa-table"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
 <ul>
-<li><a href="tables-basic.html">Basic Tables </a></li>
-<li><a href="data-tables.html">Data Table </a></li>
+<li><a href="tables-basic.php">Basic Tables </a></li>
+<li><a href="data-tables.php">Data Table </a></li>
 </ul>
 </li>
 <li class="submenu">
@@ -316,10 +316,10 @@
 <div class="page-header">
 <div class="row">
 <div class="col-sm-12">
-<h3 class="page-title">Welcome Jonathan!</h3>
+<h3 class="page-title">Welcome Bruklin!</h3>
 <ul class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-<li class="breadcrumb-item active">Teacher Dashboard</li>
+<li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+<li class="breadcrumb-item active">Student Dashboard</li>
 </ul>
 </div>
 </div>
@@ -328,15 +328,15 @@
 
 <div class="row">
 <div class="col-xl-3 col-sm-6 col-12 d-flex">
-<div class="card bg-five w-100">
+<div class="card bg-nine w-100">
 <div class="card-body">
 <div class="db-widgets d-flex justify-content-between align-items-center">
 <div class="db-icon">
-<i class="fas fa-chalkboard"></i>
+<i class="fas fa-book-open"></i>
 </div>
 <div class="db-info">
 <h3>04/06</h3>
-<h6>Total Classes</h6>
+<h6>All Courses</h6>
 </div>
 </div>
 </div>
@@ -347,41 +347,41 @@
 <div class="card-body">
 <div class="db-widgets d-flex justify-content-between align-items-center">
 <div class="db-icon">
-<i class="fas fa-user-graduate"></i>
+<i class="fas fa-file-alt"></i>
 </div>
 <div class="db-info">
 <h3>40/60</h3>
-<h6>Total Students</h6>
+<h6>All Projects</h6>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="col-xl-3 col-sm-6 col-12 d-flex">
-<div class="card bg-seven w-100">
+<div class="card bg-ten w-100">
 <div class="card-body">
 <div class="db-widgets d-flex justify-content-between align-items-center">
 <div class="db-icon">
-<i class="fas fa-book-open"></i>
+<i class="fas fa-clipboard-list"></i>
 </div>
 <div class="db-info">
 <h3>30/50</h3>
-<h6>Total Lessons</h6>
+<h6>Test Attended</h6>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="col-xl-3 col-sm-6 col-12 d-flex">
-<div class="card bg-eight w-100">
+<div class="card bg-eleven w-100">
 <div class="card-body">
 <div class="db-widgets d-flex justify-content-between align-items-center">
 <div class="db-icon">
-<i class="fas fa-clock"></i>
+<i class="fas fa-clipboard-check"></i>
 </div>
 <div class="db-info">
 <h3>15/20</h3>
-<h6>Total Hours</h6>
+<h6>Test Passed</h6>
 </div>
 </div>
 </div>
@@ -392,107 +392,77 @@
 
 <div class="row">
 <div class="col-12 col-lg-12 col-xl-9">
-<div class="row">
-<div class="col-12 col-lg-8 col-xl-8 d-flex">
 <div class="card flex-fill">
 <div class="card-header">
 <div class="row align-items-center">
 <div class="col-6">
-<h5 class="card-title">Upcoming Lesson</h5>
+<h5 class="card-title">Today’s Lesson</h5>
 </div>
 <div class="col-6">
 <span class="float-right view-link"><a href="#">View All Courses</a></span>
 </div>
 </div>
 </div>
-<div class="pt-3 pb-3">
-<div class="table-responsive lesson">
-<table class="table table-center">
-<tbody>
-<tr>
-<td>
-<div class="date">
-<b>Aug 4, Tuesday</b>
-<p>2.30pm - 3.30pm (60min)</p>
+<div class="dash-circle">
+<div class="row">
+<div class="col-12 col-lg-6 col-xl-6 dash-widget3">
+<div class="card-body dash-widget1">
+<div class="circle-bar circle-bar2">
+<div class="circle-graph2" data-percent="20">
+<b>20%</b>
 </div>
-</td>
-<td>
-<div class="date">
-<b>Lessons 30</b>
-<p>3.1 Ipsuum dolor</p>
+<h6>Lesson Learned</h6>
+<h4>10 <span>/ 50</span></h4>
 </div>
-</td>
-<td><a href="#">Confirmed</a></td>
-<td><button type="submit" class="btn btn-info">Reschedule</button></td>
-</tr>
-<tr>
-<td>
-<div class="date">
-<b>Aug 5, Wednesday</b>
-<p>3.00pm - 4.30pm (90min)</p>
-</div>
-</td>
-<td>
-<div class="date">
-<b>Lessons 31</b>
-<p>3.2 Ipsuum dolor</p>
-</div>
-</td>
-<td><a href="#">Confirmed</a></td>
-<td><button type="submit" class="btn btn-info">Reschedule</button></td>
-</tr>
-<tr>
-<td>
-<div class="date">
-<b>Aug 6, Thursday</b>
-<p>11.00am - 12.00pm (20min)</p>
-</div>
-</td>
-<td>
-<div class="date">
-<b>Lessons 32</b>
-<p>3.3 Ipsuum dolor</p>
-</div>
-</td>
-<td><a href="#">Confirmed</a></td>
-<td><button type="submit" class="btn btn-info">Reschedule</button></td>
-</tr>
-</tbody>
-</table>
+<div class="dash-details">
+<h4>Facilisi etiam</h4>
+<ul>
+<li><i class="fas fa-clock"></i> 2.30pm - 3.30pm</li>
+<li><i class="fas fa-book-open"></i> 5 Lessons</li>
+<li><i class="fas fa-hourglass-end"></i> 60 Minutes</li>
+<li><i class="fas fa-clipboard-check"></i> 5 Asignment</li>
+</ul>
+<div class="dash-btn">
+<button type="submit" class="btn btn-info btn-border">Skip</button>
+<button type="submit" class="btn btn-info">Continue</button>
 </div>
 </div>
 </div>
 </div>
-<div class="col-12 col-lg-4 col-xl-4 d-flex">
-<div class="card flex-fill">
-<div class="card-header">
-<div class="row align-items-center">
-<div class="col-12">
-<h5 class="card-title">Semester Progress</h5>
-</div>
-</div>
-</div>
-<div class="dash-widget">
-<div class="circle-bar circle-bar1">
-<div class="circle-graph1" data-percent="50">
+<div class="col-12 col-lg-6 col-xl-6 dash-widget4">
+<div class="card-body dash-widget1 dash-widget2">
+<div class="circle-bar circle-bar3">
+<div class="circle-graph3" data-percent="50">
 <b>50%</b>
 </div>
+<h6>Lesson Learned</h6>
+<h4>25 <span>/ 50</span></h4>
 </div>
-<div class="dash-info">
-<h6>Lesson Progressed</h6>
-<h4>30 <span>/ 60</span></h4>
+<div class="dash-details">
+<h4>Augue mauris</h4>
+<ul>
+<li><i class="fas fa-clock"></i> 3.30pm - 4.30pm</li>
+<li><i class="fas fa-book-open"></i> 6 Lessons</li>
+<li><i class="fas fa-hourglass-end"></i> 60 Minutes</li>
+<li><i class="fas fa-clipboard-check"></i> 6 Asignment</li>
+</ul>
+<div class="dash-btn">
+<button type="submit" class="btn btn-info btn-border">Skip</button>
+<button type="submit" class="btn btn-info">Continue</button>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="row">
-<div class="col-12 col-lg-6 col-xl-8 d-flex">
+<div class="col-12 col-lg-12 col-xl-8 d-flex">
 <div class="card flex-fill">
 <div class="card-header">
 <div class="row align-items-center">
 <div class="col-6">
-<h5 class="card-title">Teaching Activity</h5>
+<h5 class="card-title">Learning Activity</h5>
 </div>
 <div class="col-6">
 <ul class="list-inline-group text-right mb-0 pl-0">
@@ -514,10 +484,10 @@
 </div>
 </div>
 </div>
-<div class="col-12 col-lg-6 col-xl-4 d-flex">
+<div class="col-12 col-lg-12 col-xl-4 d-flex">
 <div class="card flex-fill">
 <div class="card-header">
- <h5 class="card-title">Teaching History</h5>
+<h5 class="card-title">Learning History</h5>
 </div>
 <div class="card-body">
 <div class="teaching-card">
@@ -535,7 +505,7 @@
 <li class="feed-item">
 <div class="feed-date1">Sep 02, 1 pm - 2 am (80min)</div>
 <span class="feed-text1"><a>Exercitation ullamco</a></span>
-<p>Completed</p>
+<p><span>In Progress</span></p>
 </li>
 <li class="feed-item">
 <div class="feed-date1">Aug 30, 10 am - 12 pm (90min)</div>
@@ -616,5 +586,5 @@
 <script src="assets/js/script.js"></script>
 </body>
 
-<!-- Mirrored from preschool.dreamguystech.com/html-template/teacher-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:43 GMT -->
-</html>
+<!-- Mirrored from preschool.dreamguystech.com/php-template/student-dashboard.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:43 GMT -->
+</php>
