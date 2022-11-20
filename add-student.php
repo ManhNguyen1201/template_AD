@@ -292,7 +292,7 @@
                      <div class="col">
                         <h3 class="page-title">Add Students</h3>
                         <ul class="breadcrumb">
-                           <li class="breadcrumb-item"><a href="students.html">Students</a></li>
+                           <li class="breadcrumb-item"><a href="">Students</a></li>
                            <li class="breadcrumb-item active">Add Students</li>
                         </ul>
                      </div>
@@ -308,7 +308,12 @@
                                     <h5 class="form-title"><span>Student Information</span></h5>
                                  </div>
                                  <form>
-                                
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>User-ID</label>
+                                       <input type="text" class="form-control" name="userid">
+                                    </div>
+                                 </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>User-Name</label>
@@ -331,7 +336,7 @@
                                     <div class="form-group">
                                        <label>Email</label>
                                        <div>
-                                          <input type="date" class="form-control" name="email">
+                                          <input type="text" class="form-control" name="email">
                                        </div>
                                     </div>
                                  </div>
@@ -361,12 +366,12 @@
                                        <input type="text" class="form-control" name ="phonenumber">
                                     </div>
                                  </div>
-                                 <div class="col-12 col-sm-6">
+                                 <!-- <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>User_Imgae</label>
                                        <input type="file" class="form-control" name = "userimage">
                                     </div>
-                                 </div>
+                                 </div> -->
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Role</label>
@@ -376,46 +381,43 @@
                                  <div class="col-12">
                                     <button type="submit" class="btn btn-primary" name ="add_students">Submit</button>
                                  </div>
+                                 </div>
                                </form>
-                               <?php
-                               include 'connect.php';
-                               if (isset($_POST['add_students'])) {
-                                   $userid = $_POST['userid'];
-                                   $username = $_POST['username'];
-                                   $password = $_POST['password'];
-                                   $fullname = $_POST['fullname'];
-                                   $email = $_POST['email'];
-                                   $dob = $_POST['dob'];
-                                   $gender = $_POST['gender'];
-                                   $address = $_POST['address'];
-                                   $phonenumber = $_POST['phonenumber'];
-                                   $userimage = $_FILES['userimage']['name'];
-                                   $userimage_tmp =
-                                       $_FILES['userimage']['tmp_name'];
-                                   move_uploaded_file(
-                                       $userimage_tmp,
-                                       "Images/$userimage"
-                                   );
-                                   $roleid = $_POST['roleid'];
-                                   $sql = "INSERT INTO user VALUES(NULL,' $username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','$userimage','$roleid')";
-                                   $insert_user = mysqli_query($conn, $sql);
-                                   if ($insert_user) {
-                                       echo 'Thêm thành công';
-                                       header('location:stduens.php');
-                                   } else {
-                                       echo 'lỗi';
-                                   }
+                               </div>
+                               </div>
+                               </div>
+                             </div>
+
+                           <?php
+                           include 'connect.php';
+                           if (isset($_POST['add_students'])) {
+                               $username = $_POST['username'];
+                               $password = $_POST['password'];
+                               $fullname = $_POST['fullname'];
+                               $email = $_POST['email'];
+                               $dob = $_POST['dob'];
+                               $gender = $_POST['gender'];
+                               $address = $_POST['address'];
+                               $phonenumber = $_POST['phonenumber'];
+                               //$userimage = $_FILES['userimage'];
+                               $roleid = $_POST['roleid'];
+                               $sql = "INSERT INTO user VALUES(NULL,' $username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','','$roleid')";
+                               $insert_user = mysqli_query($conn, $sql);
+                               if ($insert_user) {
+                                   echo "<script>alert('Student Has Been inserted successfully!')</script>";
+                                   header('location:students.php');
+                               } else {
+                                   echo 'lỗi';
                                }
-                               ?>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                           }
+                           ?>
+                             
+                          
+                       
+               
             </div>
          </div>
-      </div> -->
+   
       <script src="assets/js/jquery-3.6.0.min.js"></script>
       <script src="assets/js/popper.min.js"></script>
       <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>

@@ -4,7 +4,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-      <title>Preskool - Students</title>
+      <title>Edit-Students</title>
       <link rel="shortcut icon" href="assets/img/favicon.png">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
       <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -14,7 +14,7 @@
    </head>
    <body>
       <div class="main-wrapper">
-         <div class="header">
+         <!-- <div class="header">
             <div class="header-left">
                <a href="index.php" class="logo">
                <img src="assets/img/logo.png" alt="Logo">
@@ -126,8 +126,8 @@
                   </div>
                </li>
             </ul>
-         </div>
-         <div class="sidebar" id="sidebar">
+         </div> -->
+         <!-- <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                <div id="sidebar-menu" class="sidebar-menu">
                   <ul>
@@ -284,7 +284,7 @@
                   </ul>
                </div>
             </div>
-         </div>
+         </div> -->
          <div class="page-wrapper">
             <div class="content container-fluid">
                <div class="page-header">
@@ -302,164 +302,108 @@
                   <div class="col-sm-12">
                      <div class="card">
                         <div class="card-body">
-                           <form>
+                        <?php
+                        include 'connect.php';
+                        $ma_user = $_GET['userid'];
+                        $sql = "SELECT * FROM user WHERE userid = '$ma_user'";
+                        $result = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $ma_user = $row['userid'];
+                            $username = $row['username'];
+                            $password = $row['password'];
+                            $fullname = $row['fullname'];
+                            $email = $row['email'];
+                            $dob = $row['dob'];
+                            $gender = $row['gender'];
+                            $address = $row['address'];
+                            $phonenumber = $row['phonenumber'];
+                            $userimage = $row['userimage'];
+                            $roleid = $row['roleid'];
+                        }
+                        ?>
+                           <form action="xulyedit.php" method="POST">
                               <div class="row">
                                  <div class="col-12">
                                     <h5 class="form-title"><span>Student Information</span></h5>
                                  </div>
+                              
+                               
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>First Name</label>
-                                       <input type="text" class="form-control" value="Nathan Humphries">
+                                       <label>User-Name</label>
+                                       <input type="text" class="form-control" name="txt_username" value="<?php echo $username; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Last Name</label>
-                                       <input type="text" class="form-control" value="Stephen Marley">
+                                       <label>PassWord</label>
+                                       <input type="password" class="form-control" name="txt_password" value="<?php echo $password; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Student Id</label>
-                                       <input type="text" class="form-control" value="PRE1234">
+                                       <label>FullName</label>
+                                       <input type="text" class="form-control" name="txt_fullname" value = "<?php echo $fullname; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Gender</label>
-                                       <select class="form-control">
-                                          <option>Female</option>
-                                          <option>Select Gender</option>
-                                          <option>Male</option>
-                                          <option>Others</option>
-                                       </select>
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Date of Birth</label>
+                                       <label>Email</label>
                                        <div>
-                                          <input type="text" class="form-control" value="26 Apr 1994">
+                                          <input type="text" class="form-control" name="txt_email" value = "<?php echo $email; ?>">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Class</label>
-                                       <input type="text" class="form-control" value="10">
+                                       <label>Dob</label>
+                                       <input type="date" class="form-control" name = "txt_dob" value = "<?php echo $dob; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Religion</label>
-                                       <input type="text" class="form-control" value="Religion">
+                                       <label>Gender</label>
+                                       <input type="text" class="form-control" name ="txt_gender" value = "<?php echo $gender; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Joining Date</label>
+                                       <label>Address</label>
                                        <div>
-                                          <input type="text" class="form-control" value="4 Jan 2002">
+                                          <input type="text" class="form-control" name = "txt_address" value = "<?php echo $address; ?>">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Mobile Number</label>
-                                       <input type="text" class="form-control" value="077 3499 9959">
+                                       <input type="text" class="form-control" name ="txt_phonenumber" value = "<?php echo $phonenumber; ?>">
                                     </div>
                                  </div>
+                                 <!-- <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>User_Imgae</label>
+                                       <input type="file" class="form-control" name = "userimage">
+                                    </div>
+                                 </div> -->
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Admission Number</label>
-                                       <input type="text" class="form-control" value="PRE1252">
+                                       <label>Role</label>
+                                       <input type="text" class="form-control" name = "txt_roleid" value = "<?php echo $roleid; ?>">
                                     </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Section</label>
-                                       <input type="text" class="form-control" value="B">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Student Image</label>
-                                       <input type="file" class="form-control">
-                                    </div>
-                                 </div>
+                                 </div>                                                             
                                  <div class="col-12">
-                                    <h5 class="form-title"><span>Parent Information</span></h5>
+                                    <button type="submit" class="btn btn-primary" name ="edit">SAVE</button>
                                  </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Father's Name</label>
-                                       <input type="text" class="form-control" value="Stephen Marley">
-                                    </div>
                                  </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Father's Occupation</label>
-                                       <input type="text" class="form-control" value="Technician">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Father's Mobile</label>
-                                       <input type="text" class="form-control" value="	402 221 7523">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Father's Email</label>
-                                       <input type="email" class="form-control" value="stephenmarley@gmail.com">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Mother's Name</label>
-                                       <input type="text" class="form-control" value="Cleary Wong">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Mother's Occupation</label>
-                                       <input type="text" class="form-control" value="Home Maker">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Mother's Mobile</label>
-                                       <input type="text" class="form-control" value="026 7318 4366">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Mother's Email</label>
-                                       <input type="email" class="form-control" value="clearywong@gmail.com">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Present Address</label>
-                                       <textarea class="form-control">86 Lamphey Road, Thelnetham</textarea>
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Permanent Address</label>
-                                       <textarea class="form-control">86 Lamphey Road, Thelnetham</textarea>
-                                    </div>
-                                 </div>
-                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                 </div>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                               </form>
+                               </div>
+                               </div>
+                               </div>
+                             </div>
+
+                          
+            
             </div>
          </div>
       </div>
