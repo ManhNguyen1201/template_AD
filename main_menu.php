@@ -1,3 +1,4 @@
+<?php include('header.php') ?>
 <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                <div id="sidebar-menu" class="sidebar-menu">
@@ -5,12 +6,12 @@
                      <li class="menu-title">
                         <span>Main Menu</span>
                      </li>
-                     <li class="submenu active">
+                     <li class="submenu ">
                         <a href="#"><i class="fas fa-user-graduate"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
                         <ul>
-                           <li><a href="home.php" class="active">Admin Dashboard</a></li>
-                           <li><a href="teacher-dashboard.php">Teacher Dashboard</a></li>
-                           <li><a href="student-dashboard.php">Student Dashboard</a></li>
+                           <li><a href="home.php" class="">Admin Dashboard</a></li>
+                           <li><a href="home.php">Teacher Dashboard</a></li>
+                           <li><a href="home.php">Student Dashboard</a></li>
                         </ul>
                      </li>
                      <li class="submenu">
@@ -28,7 +29,7 @@
                            <li><a href="teachers.php">Teacher List</a></li>
                            <li><a href="teacher-details.php">Teacher View</a></li>
                            <li><a href="add-teacher.php">Teacher Add</a></li>
-                           <li><a href="edit-teacher.php">Teacher Edit</a></li>
+                        
                         </ul>
                      </li>
                      <li class="submenu">
