@@ -1,3 +1,6 @@
+<?php
+session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
    <!-- Mirrored from preschool.dreamguystech.com/html-template/add-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
@@ -405,7 +408,6 @@
                                $insert_user = mysqli_query($conn, $sql);
                                if ($insert_user) {
                                    echo "<script>alert('Student Has Been inserted successfully!')</script>";
-                                   header('location:students.php');
                                } else {
                                    echo 'lỗi';
                                }

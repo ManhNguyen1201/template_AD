@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+<!DOCTYPE php>
 <html lang="en">
    <!-- Mirrored from preschool.dreamguystech.com/html-template/edit-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
    <head>
