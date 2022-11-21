@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('connect.php');
-$teacher=mysqli_query($conn,"SELECT * FROM user WHERE roleid = 2");
+include 'connect.php';
+$teacher = mysqli_query($conn, 'SELECT * FROM user WHERE roleid = 2');
 ?>
 <?php
 $id= $_GET["id"];
@@ -15,11 +15,14 @@ while($row =mysqli_fetch_assoc($result)){
    $userid= $row['userid'];
    $fullname= $row['fullname'];
 
+
+    $fullname = $row['fullname'];
 }
-if(isset($_POST['update_subject'])){
-	$Sname = $_POST['Sname'];
-	$Sdes = $_POST['Sdes'];
+if (isset($_POST['update_subject'])) {
+    $Sname = $_POST['Sname'];
+    $Sdes = $_POST['Sdes'];
     $Suerid = $_POST['Suserid'];
+
     if ($_POST['Sname']=='') {
 		$Sname=$subjectname;
 	}
@@ -41,6 +44,7 @@ if(isset($_POST['update_subject'])){
 		echo "$subjectname||";
 
    }
+
 }
 ?>
 <!DOCTYPE html>
@@ -137,5 +141,6 @@ if(isset($_POST['update_subject'])){
     <script src="assets/js/script.js"></script>
 </body>
 <!-- Mirrored from preschool.dreamguystech.com/html-template/edit-subject.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
+
 
 </html>

@@ -13,7 +13,7 @@
       <link rel="stylesheet" href="assets/css/style.css">
    </head>
    <body>
-      <div class="main-wrapper">
+      <!-- <div class="main-wrapper"> 
          <div class="header">
             <div class="header-left">
                <a href="index.html" class="logo">
@@ -284,8 +284,8 @@
                   </ul>
                </div>
             </div>
-         </div>
-         <div class="page-wrapper">
+         </div> -->
+        <div class="page-wrapper">
             <div class="content container-fluid">
                <div class="page-header">
                   <div class="row align-items-center">
@@ -302,158 +302,111 @@
                   <div class="col-sm-12">
                      <div class="card">
                         <div class="card-body">
-                           <form>
+                           <form action="" method="POST">
                               <div class="row">
                                  <div class="col-12">
                                     <h5 class="form-title"><span>Student Information</span></h5>
                                  </div>
+                                 <form>
+                                
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>First Name</label>
-                                       <input type="text" class="form-control">
+                                       <label>User-Name</label>
+                                       <input type="text" class="form-control" name="username">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Last Name</label>
-                                       <input type="text" class="form-control">
+                                       <label>PassWord</label>
+                                       <input type="password" class="form-control" name="password">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Student Id</label>
-                                       <input type="text" class="form-control">
+                                       <label>FullName</label>
+                                       <input type="text" class="form-control" name="fullname">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Gender</label>
-                                       <select class="form-control">
-                                          <option>Select Gender</option>
-                                          <option>Female</option>
-                                          <option>Male</option>
-                                          <option>Others</option>
-                                       </select>
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Date of Birth</label>
+                                       <label>Email</label>
                                        <div>
-                                          <input type="date" class="form-control">
+                                          <input type="date" class="form-control" name="email">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Class</label>
-                                       <input type="text" class="form-control">
+                                       <label>Dob</label>
+                                       <input type="text" class="form-control" name = "dob">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Religion</label>
-                                       <input type="text" class="form-control">
+                                       <label>Gender</label>
+                                       <input type="text" class="form-control" name ="gender">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Joining Date</label>
+                                       <label>Address</label>
                                        <div>
-                                          <input type="date" class="form-control">
+                                          <input type="text" class="form-control" name = "address">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Mobile Number</label>
-                                       <input type="text" class="form-control">
+                                       <input type="text" class="form-control" name ="phonenumber">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Admission Number</label>
-                                       <input type="text" class="form-control">
+                                       <label>User_Imgae</label>
+                                       <input type="file" class="form-control" name = "userimage">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Section</label>
-                                       <input type="text" class="form-control">
+                                       <label>Role</label>
+                                       <input type="text" class="form-control" name = "roleid">
                                     </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Student Image</label>
-                                       <input type="file" class="form-control">
-                                    </div>
-                                 </div>
+                                 </div>                                                             
                                  <div class="col-12">
-                                    <h5 class="form-title"><span>Parent Information</span></h5>
+                                    <button type="submit" class="btn btn-primary" name ="add_students">Submit</button>
                                  </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Father's Name</label>
-                                       <input type="text" class="form-control">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Father's Occupation</label>
-                                       <input type="text" class="form-control">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Father's Mobile</label>
-                                       <input type="text" class="form-control">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Father's Email</label>
-                                       <input type="email" class="form-control">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Mother's Name</label>
-                                       <input type="text" class="form-control">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Mother's Occupation</label>
-                                       <input type="text" class="form-control">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Mother's Mobile</label>
-                                       <input type="text" class="form-control">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Mother's Email</label>
-                                       <input type="email" class="form-control">
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Present Address</label>
-                                       <textarea class="form-control"></textarea>
-                                    </div>
-                                 </div>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>Permanent Address</label>
-                                       <textarea class="form-control"></textarea>
-                                    </div>
-                                 </div>
-                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                 </div>
+                               </form>
+                               <?php
+                               include 'connect.php';
+                               if (isset($_POST['add_students'])) {
+                                   $userid = $_POST['userid'];
+                                   $username = $_POST['username'];
+                                   $password = $_POST['password'];
+                                   $fullname = $_POST['fullname'];
+                                   $email = $_POST['email'];
+                                   $dob = $_POST['dob'];
+                                   $gender = $_POST['gender'];
+                                   $address = $_POST['address'];
+                                   $phonenumber = $_POST['phonenumber'];
+                                   $userimage = $_FILES['userimage']['name'];
+                                   $userimage_tmp =
+                                       $_FILES['userimage']['tmp_name'];
+                                   move_uploaded_file(
+                                       $userimage_tmp,
+                                       "Images/$userimage"
+                                   );
+                                   $roleid = $_POST['roleid'];
+                                   $sql = "INSERT INTO user VALUES(NULL,' $username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','$userimage','$roleid')";
+                                   $insert_user = mysqli_query($conn, $sql);
+                                   if ($insert_user) {
+                                       echo 'Thêm thành công';
+                                       header('location:stduens.php');
+                                   } else {
+                                       echo 'lỗi';
+                                   }
+                               }
+                               ?>
                               </div>
                            </form>
                         </div>
@@ -462,7 +415,7 @@
                </div>
             </div>
          </div>
-      </div>
+      </div> -->
       <script src="assets/js/jquery-3.6.0.min.js"></script>
       <script src="assets/js/popper.min.js"></script>
       <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
