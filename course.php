@@ -26,15 +26,15 @@ include('connect.php');
                <div class="page-header">
                   <div class="row align-items-center">
                      <div class="col">
-                        <h3 class="page-title">Subjects</h3>
+                        <h3 class="page-title">Course</h3>
                         <ul class="breadcrumb">
-                           <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                           <li class="breadcrumb-item active">Subjects</li>
+                           <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                           <li class="breadcrumb-item active">Course</li>
                         </ul>
                      </div>
                      <div class="col-auto text-right float-right ml-auto">
-                        <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
-                        <a href="add-subject.php" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                       
+                        <a href="add-course.php" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                      </div>
                   </div>
                </div>
@@ -48,36 +48,37 @@ include('connect.php');
                                  <thead>
                                     <tr>
                                        <th>ID</th>
-                                       <th>Subject Name</th>
-                                       <th>Teacher</th>
+                                       <th>Course Name</th>
+                                       <th>Description</th>
                                        <th class="text-right">Action</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <?php
-                                    $sql = "select * from  subject,user WHERE subject.userid = user.userid";
+                                    $sql = "select * from  course WHERE courseid ";
                                     $result = mysqli_query($conn,$sql);
                                     //tra ket qua 1 mang
                                     while($row=mysqli_fetch_array($result)){
-                                       $subjectid= $row['subjectid'];
-                                       $subjectname= $row['subjectname'];
-                                       $subjectdes= $row['subjectdes'];
-                                       $fullname= $row['fullname'];
+                                       $courseid= $row['courseid'];
+                                       $coursename= $row['coursename'];
+                                       $coursedes= $row['coursedes'];
+                                       
                                     ?>
                                     <tr>
-                                       <td><?php echo $subjectid ?></td>
+                                       <td><?php echo $courseid ?></td>
                                        <td>
                                           <h2>
-                                             <a><?php echo $subjectname ?></a>
+                                             <a><?php echo $coursename ?></a>
                                           </h2>
                                        </td>
-                                       <td><?php echo $fullname ?></td>
+                                        <td><?php echo $coursedes ?></td>
+                                     
                                        <td class="text-right">
                                           <div class="actions">
-                                             <a href="edit-subject.php?id=<?php echo $subjectid ?>" class="btn btn-sm bg-success-light mr-2">
+                                             <a href="edit-course.php?id=<?php echo $courseid ?>" class="btn btn-sm bg-success-light mr-2">
                                              <i class="fas fa-pen"></i>
                                              </a>
-                                             <a href="?id=<?php echo $subjectid ?>" class="btn btn-sm bg-danger-light">
+                                             <a href="?id=<?php echo $courseid ?>" class="btn btn-sm bg-danger-light">
                                              <i class="fas fa-trash"></i>
                                              </a>
                                           </div>
@@ -87,10 +88,10 @@ include('connect.php');
                                     <?php
                                     if(isset($_GET["id"])){
                                        $id = $_GET["id"];
-                                       $sql="DELETE FROM subject where subjectid= $id";
+                                       $sql="DELETE FROM course where courseid= $id";
                                        $result=mysqli_query($conn,$sql);
                                        if($result) {
-                                          echo "<script> alert ('Xóa thành công!')</script>";echo "<script>window.open('subjects.php','_self')</script>";
+                                          echo "<script> alert ('Xóa thành công!')</script>";echo "<script>window.open('course.php','_self')</script>";
                   
                                        }
                                     } 

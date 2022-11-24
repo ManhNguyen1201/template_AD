@@ -86,7 +86,6 @@ include('connect.php');
                                   
                                           <h2 class='table-avatar'>
                                              <a href='teacher-details.php' class='avatar avatar-sm mr-2'><img src="assets/img/user/<?php $userimage ?>" alt="">
-
                                            
                                           </h2>
 
@@ -146,7 +145,7 @@ include('connect.php');
                </div>
             </div>
             <footer>
-               <p style="text-align: center;"><h><b style="color: red">^-^ Hello Everyone ^-^</b></h></p>
+               <p>Copyright © 2020 Dreamguys.</p>
             </footer>
          </div>
       </div>

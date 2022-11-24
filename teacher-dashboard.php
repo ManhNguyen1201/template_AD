@@ -25,7 +25,7 @@ session_start();
                <div class="page-header">
                   <div class="row">
                      <div class="col-sm-12">
-                        <h3 class="page-title">Welcome Admin!</h3>
+                        <h3 class="page-title">Welcome Teacher!</h3>
                         <ul class="breadcrumb">
                            <li class="breadcrumb-item active">Dashboard</li>
                         </ul>
@@ -233,7 +233,7 @@ session_start();
                   <div class="col-md-6 d-flex">
                      <div class="card flex-fill">
                         <div class="card-header">
-                           <h5 class="card-title">Student Activity</h5>
+                           <h5 class="card-title">Teacher Activity</h5>
                         </div>
                         <div class="card-body">
                            <ul class="activity-feed">

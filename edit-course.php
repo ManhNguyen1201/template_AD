@@ -1,37 +1,49 @@
 <?php
 session_start();
-include("connect.php");
-$teacher=mysqli_query($conn,"SELECT * FROM user WHERE roleid= 2");
-if(isset($_POST['insert_subject'])){
-   $subjectname = $_POST['Sname'];
-   $subjectdes = $_POST['Sdes'];
-   $userid = $_POST['Suserid'];   
-   // Getting the image, audio from the field
-/* $music_image  = $_FILES['music_image']['name'];
-   $music_image_tmp = $_FILES['music_image']['tmp_name'];
-   $music_audio  = $_FILES['music_audio']['name'];
-   $music_audio_tmp = $_FILE*/      
-   
+include 'connect.php';
+?>
+<?php
+$id= $_GET["id"];
+$sql = "SELECT * FROM course WHERE courseid = $id";
+$result = mysqli_query($conn,$sql);
+//tra ket qua 1 mang
+while($row =mysqli_fetch_assoc($result)){
+   $courseid= $row['courseid'];
+   $coursename= $row['coursename'];
+   $coursedes= $row['coursedes'];
+}
+if (isset($_POST['update_course'])) {
+    $Sname = $_POST['Sname'];
+    $Sdes = $_POST['Sdes'];
+    $Scourseid = $_POST['Scourseid'];
 
-   $sql = " INSERT INTO subject VALUES (NULL,'$subjectname','$subjectname','$userid') ";
-   $insert_subject = mysqli_query($conn, $sql);
+    if ($_POST['Sname']=='') {
+        $Sname=$coursename;
+    }
+    if ($_POST['Sdes']=='') {
+        $Sdes=$coursedes;
+    }
+    if ($_POST['Scourseid']=='') {
+        $Scourseid=$courseid;
+    }
+    $sql_up = " UPDATE course SET coursename = '$Sname',coursedes= '$Sdes' WHERE courseid = $courseid";
+    $update_course = mysqli_query($conn, $sql_up);
 
-   if($insert_subject){
-      // header('location:subjects.php');
-      echo "<script>alert('Subject Has Been inserted successfully!')</script>";
-      // echo "<script>window.open('add_music.php','_self')</script>";
-      echo "<script>window.open('subjects.php','_self')</script>";
-   }
+    if($update_course){
+        header('location:course.php');
+        echo "<script>alert('Course Has Been updated successfully!')</script>";
+    }
    else{
-      echo "loi";
+        echo "loi";
+        echo "$coursename||";
 
    }
 
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<!-- Mirrored from preschool.dreamguystech.com/html-template/add-subject.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
+<!-- Mirrored from preschool.dreamguystech.com/html-template/edit-subject.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
 
 <head>
     <meta charset="utf-8">
@@ -55,10 +67,10 @@ if(isset($_POST['insert_subject'])){
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="page-title">Add Subject</h3>
+                            <h3 class="page-title">Edit Course</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="subjects.html">Subject</a></li>
-                                <li class="breadcrumb-item active">Add Subject</li>
+                                <li class="breadcrumb-item"><a href="course.php">Course</a></li>
+                                <li class="breadcrumb-item active">Edit Course</li>
                             </ul>
                         </div>
                     </div>
@@ -70,33 +82,26 @@ if(isset($_POST['insert_subject'])){
                                 <form method="POST">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h5 class="form-title"><span>Subject Information</span></h5>
+                                            <h5 class="form-title"><span>Course Information</span></h5>
                                         </div>
+
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Subject Name</label>
-                                                <input type="text" name="Sname" class="form-control">
+                                                <label>Course Name</label>
+                                                <input type="text" class="form-control" name="Sname"
+                                                    value="<?php echo $coursename ?>">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Subject Description</label>
-                                                <input type="text" name="Sdes" class="form-control">
+                                                <label>Course Description</label>
+                                                <input type="text" class="form-control" name="Sdes"
+                                                    value="<?php echo $coursedes ?>">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6">
-                                            <div class="form-group">
-                                                <label>Teacher</label>
-                                                <select class="form-control" name="Suserid" required value="">
-                                                    <?php foreach ($teacher as $key => $value) { ?>
-                                                    <option value="<?php echo $value['userid'] ?>">
-                                                        <?php echo $value['fullname'] ?> </option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="col-12">
-                                            <button type="submit" name="insert_subject"
+                                            <button type="submit" name="update_course"
                                                 class="btn btn-primary">Submit</button>
                                         </div>
                                     </div>
@@ -114,6 +119,7 @@ if(isset($_POST['insert_subject'])){
     <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
-<!-- Mirrored from preschool.dreamguystech.com/html-template/add-subject.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
+<!-- Mirrored from preschool.dreamguystech.com/html-template/edit-subject.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
+
 
 </html>

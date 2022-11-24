@@ -10,7 +10,7 @@
                         <a href="#"><i class="fas fa-user-graduate"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
                         <ul>
                            <li><a href="home.php" class="">Admin Dashboard</a></li>
-                           <li><a href="home.php">Teacher Dashboard</a></li>
+                           <li><a href="teachers.php">Teacher Dashboard</a></li>
                            <li><a href="home.php">Student Dashboard</a></li>
                         </ul>
                      </li>
@@ -20,38 +20,47 @@
                            <li><a href="students.php">Student List</a></li>
                            <li><a href="student-details.php">Student View</a></li>
                            <li><a href="add-student.php">Student Add</a></li>
-                           <li><a href="edit-student.php">Student Edit</a></li>
+                           
                         </ul>
                      </li>
                      <li class="submenu">
                         <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span class="menu-arrow"></span></a>
                         <ul>
-                           <li><a href="teachers.php">Teacher List</a></li>
+                           <li><a href="Teacher-list.php">Teacher List</a></li>
                            <li><a href="teacher-details.php">Teacher View</a></li>
                            <li><a href="add-teacher.php">Teacher Add</a></li>
                         
                         </ul>
                      </li>
-                     <li class="submenu">
+                   <!--   <li class="submenu">
                         <a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span class="menu-arrow"></span></a>
                         <ul>
                            <li><a href="departments.php">Department List</a></li>
                            <li><a href="add-department.php">Department Add</a></li>
                            <li><a href="edit-department.php">Department Edit</a></li>
                         </ul>
-                     </li>
+                     </li> -->
                      <li class="submenu">
                         <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
                         <ul>
                            <li><a href="subjects.php">Subject List</a></li>
                            <li><a href="add-subject.php">Subject Add</a></li>
-                           <li><a href="edit-subject.php">Subject Edit</a></li>
+                         
+                        </ul>
+                     </li>
+                       <li class="submenu">
+                        <a href="#"><i class="fas fa-book-reader"></i> <span> Course </span> <span class="menu-arrow"></span></a>
+                        <ul>
+                           <li><a href="course.php">Score List</a></li>
+                           <li><a href="course-details.php">Course View</a></li>
+                           <li><a href="add-course.php">Course Add</a></li>
+                        
                         </ul>
                      </li>
                      <li class="menu-title">
                         <span>Management</span>
                      </li>
-                     <li class="submenu">
+                     <!-- <li class="submenu">
                         <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span> Accounts</span> <span class="menu-arrow"></span></a>
                         <ul>
                            <li><a href="fees-collections.php">Fees Collection</a></li>
@@ -61,7 +70,7 @@
                            <li><a href="add-expenses.php">Add Expenses</a></li>
                            <li><a href="add-salary.php">Add Salary</a></li>
                         </ul>
-                     </li>
+                     </li> -->
                      <li>
                         <a href="holiday.html"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
                      </li>
