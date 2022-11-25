@@ -319,9 +319,29 @@
                             $phonenumber = $row['phonenumber'];
                             $userimage = $row['userimage'];
                             $roleid = $row['roleid'];
-                        }
+
+                            if (isset($_POST['edit_students'])) {
+                               
+                              $username = $_POST['username'];
+                              $password = $_POST['password'];
+                              $fullname = $_POST['fullname'];
+                              $email = $_POST['email'];
+                              $dob = $_POST['dob'];
+                              $gender = $_POST['gender'];
+                              $address = $_POST['address'];
+                              $phonenumber = $_POST['phonenumber'];                              
+                          }                           
+                          $sql = "UPDATE `user` SET `username`='[username]',`password`='[password]',`fullname`='[fullname]',`email`='[email]',`dob`='[dob]',`gender`='[gender]',`address`='[address]',`phonenumber`='[phonenumber]' WHERE userid = '$userid'";
+                          if (mysqli_query($conn, $sql)) {
+                              header('location: students.php');
+                          } else {
+                              $result =
+                                  ' Update unsuccesfull' .
+                                  mysqli_error($conn);
+                          }
+                        }                          
                         ?>
-                           <form action="xulyedit.php" method="POST">
+                           <form action="" method="POST">
                               <div class="row">
                                  <div class="col-12">
                                     <h5 class="form-title"><span>Student Information</span></h5>
@@ -331,53 +351,53 @@
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>User-Name</label>
-                                       <input type="text" class="form-control" name="txt_username" value="<?php echo $username; ?>">
+                                       <input type="text" class="form-control" name="username" value="<?php echo $username; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>PassWord</label>
-                                       <input type="password" class="form-control" name="txt_password" value="<?php echo $password; ?>">
+                                       <input type="password" class="form-control" name="password" value="<?php echo $password; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>FullName</label>
-                                       <input type="text" class="form-control" name="txt_fullname" value = "<?php echo $fullname; ?>">
+                                       <input type="text" class="form-control" name="fullname" value = "<?php echo $fullname; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Email</label>
                                        <div>
-                                          <input type="text" class="form-control" name="txt_email" value = "<?php echo $email; ?>">
+                                          <input type="text" class="form-control" name="email" value = "<?php echo $email; ?>">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Dob</label>
-                                       <input type="date" class="form-control" name = "txt_dob" value = "<?php echo $dob; ?>">
+                                       <input type="date" class="form-control" name = "dob" value = "<?php echo $dob; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Gender</label>
-                                       <input type="text" class="form-control" name ="txt_gender" value = "<?php echo $gender; ?>">
+                                       <input type="text" class="form-control" name ="gender" value = "<?php echo $gender; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Address</label>
                                        <div>
-                                          <input type="text" class="form-control" name = "txt_address" value = "<?php echo $address; ?>">
+                                          <input type="text" class="form-control" name = "address" value = "<?php echo $address; ?>">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Mobile Number</label>
-                                       <input type="text" class="form-control" name ="txt_phonenumber" value = "<?php echo $phonenumber; ?>">
+                                       <input type="text" class="form-control" name ="phonenumber" value = "<?php echo $phonenumber; ?>">
                                     </div>
                                  </div>
                                  <!-- <div class="col-12 col-sm-6">
@@ -389,11 +409,11 @@
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Role</label>
-                                       <input type="text" class="form-control" name = "txt_roleid" value = "<?php echo $roleid; ?>">
+                                       <input type="text" class="form-control" name = "roleid" value = "<?php echo $roleid; ?>">
                                     </div>
                                  </div>                                                             
                                  <div class="col-12">
-                                    <button type="submit" class="btn btn-primary" name ="edit">SAVE</button>
+                                    <button type="submit" class="btn btn-primary" name ="edit_students">SAVE</button>
                                  </div>
                                  </div>
                                </form>

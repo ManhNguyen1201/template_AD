@@ -389,11 +389,14 @@
                                $gender = $_POST['gender'];
                                $address = $_POST['address'];
                                $phonenumber = $_POST['phonenumber'];
-                              
+                               if (isset($_FILES['userimage'])) {
+                                 $file= $_FILES['userimage'];
+                                 $file_name= $file['name'];
+                                 move_uploaded_file($file['tmp_name'],'assets/img/user/' .$file_name);
                          
 
-                               $sql = " INSERT INTO user VALUES (NULL,'$username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','$userimage') ";
-                               $insert_user = mysqli_query($connect, $sql);
+                               $sql = "INSERT INTO user VALUES (NULL,'$username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','$file_name') ";
+                               $insert_user = mysqli_query($conn, $sql);
                                if ($insert_user) {
                                    echo "<script>alert('Student Has Been inserted successfully!')</script>";
                                    header('location:students.php');
@@ -401,6 +404,7 @@
                                    echo 'lỗi';
                                }
                            }
+                        }
                            ?>
                      
                      
