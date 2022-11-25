@@ -8,7 +8,7 @@ include('connect.php');
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-      <title>Preskool - Teachers</title>
+      <title>Preskool - Teacher</title>
       <link rel="shortcut icon" href="assets/img/favicon.png">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
       <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -19,8 +19,8 @@ include('connect.php');
    </head>
    <body>
       <div class="main-wrapper">
-      	<?php include('header.php') ?>
-      	<?php include('main_menu.php') ?>
+         <?php include('header.php') ?>
+        <?php include('main_menu.php') ?>
          <div class="page-wrapper">
             <div class="content container-fluid">
                <div class="page-header">
@@ -58,13 +58,14 @@ include('connect.php');
                                        <th>Mobile Number</th>                                      
                                        <th>Role_id</th>
                                        <th class="text-right">Action
+
                                        </th>
                                     </tr>
                                  </thead>
                                  <tbody>  
                                     <?php
                                     include 'connect.php';
-                                    $sql = 'SELECT * FROM user where roleid="2"';
+                                    $sql = 'SELECT * FROM user where roleid=2';
                                     $result = mysqli_query($conn, $sql);
                                     while ($row = mysqli_fetch_array($result)) {
 
@@ -83,12 +84,10 @@ include('connect.php');
                               
                                       <tr>                                     
                                        <td>
-                                  
                                           <h2 class='table-avatar'>
-                                             <a href='teacher-details.php' class='avatar avatar-sm mr-2'><img src="assets/img/user/<?php $userimage ?>" alt="">
+                                             <a href='teacher-details.php' class='avatar avatar-sm mr-2'><img class='avatar-img rounded-circle' src='assets/img/user/<?php echo $userimage?>'alt='User Image'></a>
                                            
                                           </h2>
-
                                        </td>
                                        <td><?php echo $userid; ?> </td>
                                        <td><?php echo $username; ?> </td>
@@ -99,7 +98,7 @@ include('connect.php');
                                        <td><?php echo $gender; ?></td>
                                        <td><?php echo $address; ?></td>
                                        <td><?php echo $phonenumber; ?></td> 
-                                       <td><?php echo $userimage; ?></td>                               
+
                                        <td><?php echo $roleid; ?></td>
 
                                        <td class='text-right'>
@@ -116,27 +115,17 @@ include('connect.php');
                                     <?php
                                     }
                                     ?>
-                                    <?php  ?>
-                                      <?php
-                                    if(isset($_GET["userid"])){
-                                       $userid = $_GET["userid"];
-                                       $sql="DELETE FROM user where userid = $userid";
-                                       $result=mysqli_query($conn,$sql);
-                                       if($result) {
-                                          echo "<script> alert ('Xóa thành công!')</script>";echo "<script>window.open('teachers.php','_self')</script>";
-                  
-                                       }
-                                    } 
-                                    ?>
-
-                                    
-                                   
-                                   
-                                    
+                                        <?php
+                                   if(isset($_GET["userid"])){
+                                      $userid = $_GET["userid"];
+                                      $sql="DELETE FROM user where userid= $userid";
+                                      $result=mysqli_query($conn,$sql);
+                                      if($result) {
+                                         echo "<script> alert ('Xóa thành công!')</script>";echo "<script>window.open('teachers.php','_self')</script>";
+                                      }
+                                   } 
+                                   ?>
                                  </tbody>
-
-                               
-
                               </table>
                            </div>
                         </div>

@@ -11,7 +11,7 @@
                         <ul>
                            <li><a href="home.php" class="">Admin Dashboard</a></li>
                            <li><a href="teachers.php">Teacher Dashboard</a></li>
-                           <li><a href="home.php">Student Dashboard</a></li>
+                           <li><a href="student-dashboard.php">Student Dashboard</a></li>
                         </ul>
                      </li>
                      <li class="submenu">
@@ -52,8 +52,17 @@
                         <a href="#"><i class="fas fa-book-reader"></i> <span> Course </span> <span class="menu-arrow"></span></a>
                         <ul>
                            <li><a href="course.php">Score List</a></li>
-                           <li><a href="course-details.php">Course View</a></li>
+                           <!-- <li><a href="course-details.php">Course View</a></li> -->
                            <li><a href="add-course.php">Course Add</a></li>
+                        
+                        </ul>
+                     </li>
+                        <li class="submenu">
+                        <a href="#"><i class="fas fa-book-reader"></i> <span> Class </span> <span class="menu-arrow"></span></a>
+                        <ul>
+                           <li><a href="class.php">Class List</a></li>
+                           <!-- <li><a href="course-details.php">Course View</a></li> -->
+                           <li><a href="add-class.php">Class Add</a></li>
                         
                         </ul>
                      </li>

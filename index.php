@@ -20,6 +20,7 @@ if(isset($_POST['login'])){
 		$_SESSION["username"] = $data ['username'];
 		$_SESSION["password"] = $data ['password'];
 		$_SESSION["fullname"] = $data ['fullname'];
+      $_SESSION["userimage"] = $data ['userimage'];
       $_SESSION["roleid"] = $data ['roleid'];
 	}
 	else{
@@ -33,7 +34,7 @@ if (isset($_SESSION["roleid"])) {
 		header('location:home.php');
 	}
 	else{
-	header("location:student-dashboard.php");
+	header("location:home.php");
 	$_SESSION["userid"] = $data ['userid'];
 	}
 }
