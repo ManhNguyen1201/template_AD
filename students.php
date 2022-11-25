@@ -34,7 +34,6 @@ include('connect.php');
                         </ul>
                      </div>
                      <div class="col-auto text-right float-right ml-auto">
-                        <!-- <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a> -->
                         <a href="add-student.php" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                      </div>
                   </div>
@@ -106,7 +105,7 @@ include('connect.php');
                                            <a href="edit-students.php?userid=<?php echo $userid ?>" class="btn btn-sm bg-success-light mr-2">
                                              <i class="fas fa-pen"></i>
                                              </a>
-                                           <a href="deletetudents.php?userid=<?php echo $userid; ?>">Xóa </a>                                    
+                                           <a href="deletetudents.php?userid=<?php echo $userid; ?>"> <i class="fas fa-trash"></i>  </a>                                    
                                        </div>
                                     </td>
                                     </tr>
