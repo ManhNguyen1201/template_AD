@@ -97,8 +97,8 @@
                   <?php if (isset($_SESSION["fullname"])) { ?>
                   <div class="dropdown-menu">
                      <div class="user-header">
-                        <div class="avatar avatar-sm">
-                           <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+                        <div class="avatar avatar-sm">                           
+                        <img src ='assets/img/user/studen1.jpg'>                        
                         </div>
                         <div class="user-text">
                            <h6><?php echo $_SESSION["username"] ?></h6>
