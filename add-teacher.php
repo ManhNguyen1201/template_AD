@@ -17,10 +17,11 @@ include('connect.php');
       <link rel="stylesheet" href="assets/css/style.css">
    </head>
    <body>
-
-        <div class="page-wrapper">
-         <?php include('header.php') ?>
+        <div class="main-wrapper">
+          <?php include('header.php') ?>
          <?php include('main_menu.php') ?>
+        <div class="page-wrapper">
+         
             <div class="content container-fluid">
                <div class="page-header">
                   <div class="row align-items-center">
@@ -37,13 +38,13 @@ include('connect.php');
                   <div class="col-sm-12">
                      <div class="card">
                         <div class="card-body">
-                           <form action="" method="POST">
+                           <form action="" method="POST" enctype="multipart/form-data">
                               <div class="row">
                                  <div class="col-12">
                                     <h5 class="form-title"><span>Teacher Information</span></h5>
                                  </div>
                                  <form>
-                                 
+                          
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>User-Name</label>
@@ -73,13 +74,16 @@ include('connect.php');
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Dob</label>
-                                       <input type="text" class="form-control" name = "dob">
+                                       <input type="date" class="form-control" name = "dob">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Gender</label>
-                                       <input type="text" class="form-control" name ="gender">
+                                       <select class="form-control" name="gender" >
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                      </select>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
@@ -96,12 +100,12 @@ include('connect.php');
                                        <input type="text" class="form-control" name ="phonenumber">
                                     </div>
                                  </div>
-                                 <!-- <div class="col-12 col-sm-6">
+                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>User_Imgae</label>
-                                       <input type="file" class="form-control" name = "userimage">
+                                        <input type="file" name="userimage">
                                     </div>
-                                 </div> -->
+                                 </div>
                                                                                             
                                  <div class="col-12">
                                     <button type="submit" class="btn btn-primary" name ="add_teachers">Submit</button>
@@ -124,11 +128,19 @@ include('connect.php');
                                $gender = $_POST['gender'];
                                $address = $_POST['address'];
                                $phonenumber = $_POST['phonenumber'];
-                               //$userimage = $_FILES['userimage'];
                               
-                               $sql = "INSERT INTO user VALUES(NULL,' $username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','',2)";
+                               //upload file
+                              if (isset($_FILES['userimage'])) {
+                              $file= $_FILES['userimage'];
+                              $file_name= $file['name'];
+                              move_uploaded_file($file['tmp_name'],'assets/img/user/' .$file_name);
+                            
+
+                               }   
+                              $sql = "INSERT INTO user VALUES(NULL,' $username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','$file_name',2)";
                                $insert_user = mysqli_query($conn, $sql);
                                if ($insert_user) {
+                                // echo $insert_user;
                                  // header('location:teachers.php');
                                  echo "<script>window.open('teachers.php','_self')</script>";
                                    echo "<script>alert('Teacher Has Been inserted successfully!')</script>";
@@ -138,9 +150,7 @@ include('connect.php');
                                }
                            }
                            ?>
-                             
-                          
-                       
+        
                
             </div>
          </div>

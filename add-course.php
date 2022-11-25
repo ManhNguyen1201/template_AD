@@ -1,12 +1,10 @@
 <?php
 session_start();
 include("connect.php");
-$teacher=mysqli_query($conn,"SELECT * FROM user WHERE roleid= 2");
-if(isset($_POST['insert_subject'])){
-
-   $subjectname = $_POST['Sname'];
-   $subjectdes = $_POST['Sdes'];
-   $userid = $_POST['Suserid'];   
+if(isset($_POST['insert_course'])){
+   $coursename = $_POST['Sname'];
+   $coursedes = $_POST['Sdes'];
+     
    // Getting the image, audio from the field
 /* $music_image  = $_FILES['music_image']['name'];
    $music_image_tmp = $_FILES['music_image']['tmp_name'];
@@ -14,20 +12,19 @@ if(isset($_POST['insert_subject'])){
    $music_audio_tmp = $_FILE*/      
    
 
-   $sql = " INSERT INTO subject VALUES (NULL,'$subjectname','$subjectname','$userid') ";
-   $insert_subject = mysqli_query($conn, $sql);
+   $sql = " INSERT INTO course VALUES (NULL,'$coursename','$coursedes') ";
+   $insert_course = mysqli_query($conn, $sql);
 
-   if($insert_subject){
+   if($insert_course){
       // header('location:subjects.php');
-      echo "<script>alert('Subject Has Been inserted successfully!')</script>";
+      echo "<script>alert('course Has Been inserted successfully!')</script>";
       // echo "<script>window.open('add_music.php','_self')</script>";
-      echo "<script>window.open('subjects.php','_self')</script>";
+      echo "<script>window.open('course.php','_self')</script>";
    }
    else{
       echo "loi";
 
    }
-
 
 } 
 ?>
@@ -57,10 +54,10 @@ if(isset($_POST['insert_subject'])){
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="page-title">Add Subject</h3>
+                            <h3 class="page-title">Add course</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="subjects.html">Subject</a></li>
-                                <li class="breadcrumb-item active">Add Subject</li>
+                                <li class="breadcrumb-item"><a href="">course</a></li>
+                                <li class="breadcrumb-item active">Add course</li>
                             </ul>
                         </div>
                     </div>
@@ -72,33 +69,24 @@ if(isset($_POST['insert_subject'])){
                                 <form method="POST">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h5 class="form-title"><span>Subject Information</span></h5>
+                                            <h5 class="form-title"><span>Course Information</span></h5>
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Subject Name</label>
+                                                <label>Course Name</label>
                                                 <input type="text" name="Sname" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Subject Description</label>
+                                                <label>Course Description</label>
                                                 <input type="text" name="Sdes" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6">
-                                            <div class="form-group">
-                                                <label>Teacher</label>
-                                                <select class="form-control" name="Suserid" required value="">
-                                                    <?php foreach ($teacher as $key => $value) { ?>
-                                                    <option value="<?php echo $value['userid'] ?>">
-                                                        <?php echo $value['fullname'] ?> </option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
+                                       
                                         <div class="col-12">
-                                            <button type="submit" name="insert_subject"
+                                            <button type="submit" name="insert_course"
                                                 class="btn btn-primary">Submit</button>
                                         </div>
                                     </div>

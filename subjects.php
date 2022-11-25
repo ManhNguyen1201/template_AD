@@ -26,6 +26,7 @@ include('connect.php');
         <?php include('main_menu.php') ?>
         <div class="page-wrapper">
             <div class="content container-fluid">
+
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col">
@@ -59,6 +60,7 @@ include('connect.php');
                                         </thead>
                                         <tbody>
                                             <?php
+
                                     $sql = "select * from  subject,user WHERE subject.userid = user.userid";
                                     $result = mysqli_query($conn,$sql);
                                     //tra ket qua 1 mang
@@ -93,7 +95,9 @@ include('connect.php');
                                             <?php
                                     if(isset($_GET["id"])){
                                        $id = $_GET["id"];
+
                                        $sql="DELETE FROM subject where subjectid = $id";
+
                                        $result=mysqli_query($conn,$sql);
                                        if($result) {
                                           echo "<script> alert ('Xóa thành công!')</script>";echo "<script>window.open('subjects.php','_self')</script>";

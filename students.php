@@ -36,7 +36,7 @@
             <a class="mobile_btn" id="mobile_btn">
             <i class="fas fa-bars"></i>
             </a>
-            <ul c`lass="nav user-menu">
+            <ul class="nav user-menu">
                <li class="nav-item dropdown noti-dropdown">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <i class="far fa-bell"></i> <span class="badge badge-pill">3</span>
@@ -350,7 +350,7 @@
                                       <tr>                                     
                                        <td>
                                           <h2 class='table-avatar'>
-                                             <a href='student-details.php' class='avatar avatar-sm mr-2'><img class='avatar-img rounded-circle src='assets/img/profiles/$userimage' alt='User Image'></a>
+                                             <a href='student-details.php' class='avatar avatar-sm mr-2'><img class='avatar-img rounded-circle' src='assets/img/user/<?php echo $userimage?>'alt='User Image'></a>
                                            
                                           </h2>
                                        </td>
@@ -367,8 +367,12 @@
 
                                        <td class='text-right'>
                                        <div class='actions'>
-                                           <a href="edit-students.php?userid=<?php echo $userid; ?>">Edit </a>
-                                           <a href="deletetudents.php?userid=<?php echo $userid; ?>">Xóa </a>                                    
+                                         <a href="edit-teacher.php?userid=<?php echo $userid ?>" class="btn btn-sm bg-success-light mr-2">
+                                             <i class="fas fa-pen"></i>
+                                             </a>
+                                             <a href="?userid=<?php echo $userid ?>" class="btn btn-sm bg-danger-light">
+                                             <i class="fas fa-trash"></i>  
+                                             </a>                                
                                        </div>
                                     </td>
                                     </tr>

@@ -1,49 +1,41 @@
 <?php
 session_start();
 include 'connect.php';
-$teacher = mysqli_query($conn, 'SELECT * FROM user WHERE roleid = 2');
 ?>
 <?php
 $id= $_GET["id"];
-$sql = "SELECT * FROM user JOIN subject ON user.userid = subject.userid WHERE subjectid = $id";
+$sql = "SELECT * FROM course WHERE courseid = $id";
 $result = mysqli_query($conn,$sql);
 //tra ket qua 1 mang
 while($row =mysqli_fetch_assoc($result)){
-   $subjectid= $row['subjectid'];
-   $subjectname= $row['subjectname'];
-   $subjectdes= $row['subjectdes'];
-   $userid= $row['userid'];
-   $fullname= $row['fullname'];
-
-
-    $fullname = $row['fullname'];
+   $courseid= $row['courseid'];
+   $coursename= $row['coursename'];
+   $coursedes= $row['coursedes'];
 }
-if (isset($_POST['update_subject'])) {
+if (isset($_POST['update_course'])) {
     $Sname = $_POST['Sname'];
     $Sdes = $_POST['Sdes'];
-    $Suerid = $_POST['Suserid'];
+    $Scourseid = $_POST['Scourseid'];
 
     if ($_POST['Sname']=='') {
+        $Sname=$coursename;
+    }
+    if ($_POST['Sdes']=='') {
+        $Sdes=$coursedes;
+    }
+    if ($_POST['Scourseid']=='') {
+        $Scourseid=$courseid;
+    }
+    $sql_up = " UPDATE course SET coursename = '$Sname',coursedes= '$Sdes' WHERE courseid = $courseid";
+    $update_course = mysqli_query($conn, $sql_up);
 
-		$Sname=$subjectname;
-	}
-	if ($_POST['Sdes']=='') {
-		$Sdes=$subjectdes;
-	}
-	if ($_POST['Suserid']=='') {
-		$Suerid=$userid;
-	}
-    $sql_up = " UPDATE subject SET subjectname = '$Sname',subjectdes= '$Sdes',userid='$Suerid' WHERE subjectid = $subjectid";
-	$update_subject = mysqli_query($conn, $sql_up);
-
-	if($update_subject){
-		header('location:subjects.php');
-		echo "<script>alert('Subject Has Been updated successfully!')</script>";
-	}
+    if($update_course){
+        header('location:course.php');
+        echo "<script>alert('Course Has Been updated successfully!')</script>";
+    }
    else{
-		echo "loi";
-		echo "$subjectname||";
-
+        echo "loi";
+        echo "$coursename||";
 
    }
 
@@ -75,10 +67,10 @@ if (isset($_POST['update_subject'])) {
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="page-title">Edit Subject</h3>
+                            <h3 class="page-title">Edit Course</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="subjects.html">Subject</a></li>
-                                <li class="breadcrumb-item active">Edit Subject</li>
+                                <li class="breadcrumb-item"><a href="course.php">Course</a></li>
+                                <li class="breadcrumb-item active">Edit Course</li>
                             </ul>
                         </div>
                     </div>
@@ -90,41 +82,26 @@ if (isset($_POST['update_subject'])) {
                                 <form method="POST">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h5 class="form-title"><span>Subject Information</span></h5>
+                                            <h5 class="form-title"><span>Course Information</span></h5>
                                         </div>
 
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Subject Name</label>
+                                                <label>Course Name</label>
                                                 <input type="text" class="form-control" name="Sname"
-                                                    value="<?php echo $subjectname ?>">
+                                                    value="<?php echo $coursename ?>">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Subject Description</label>
+                                                <label>Course Description</label>
                                                 <input type="text" class="form-control" name="Sdes"
-                                                    value="<?php echo $subjectdes ?>">
+                                                    value="<?php echo $coursedes ?>">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6">
-                                            <div class="form-group">
-                                                <label>Teacher</label>
-
-                                                <select class="form-control" name="Suserid" required
-                                                    value="<?php echo $userid ?>">
-                                                    <option value="<?php echo $userid ?>"><?php echo $fullname ?>
-                                                    </option>
-                                                    <!-- <option value="<?php echo $userid ?>"><?php echo $fullname ?></option> -->
-                                                    <?php foreach ($teacher as $key => $value) { ?>
-                                                    <option value="<?php echo $value['userid'] ?>">
-                                                        <?php echo $value['fullname'] ?> </option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="col-12">
-                                            <button type="submit" name="update_subject"
+                                            <button type="submit" name="update_course"
                                                 class="btn btn-primary">Submit</button>
                                         </div>
                                     </div>

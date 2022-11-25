@@ -151,9 +151,9 @@ include('connect.php');
                                     <div class="form-group">
                                        <label>Gender</label>
                                        <select class="form-control" name="Tgender" required value="<?php echo $gender ?>">
-										<option value="Nam">Nam</option>
-										<option value="Nu">Nu</option>
-									</select>
+                    										<option value="Nam">Male</option>
+                    										<option value="Nu">Female</option>
+                    									</select>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">

@@ -97,7 +97,7 @@ include('connect.php');
                                        <td><?php echo $dob; ?></td>
                                        <td><?php echo $gender; ?></td>
                                        <td><?php echo $address; ?></td>
-                                       <td><?php echo $phonenumber; ?></td>
+                                       <td><?php echo $phonenumber; ?></td> 
 
                                        <td><?php echo $roleid; ?></td>
 
@@ -115,24 +115,17 @@ include('connect.php');
                                     <?php
                                     }
                                     ?>
-                                   
-                                   <?php
+                                        <?php
                                    if(isset($_GET["userid"])){
                                       $userid = $_GET["userid"];
                                       $sql="DELETE FROM user where userid= $userid";
                                       $result=mysqli_query($conn,$sql);
                                       if($result) {
                                          echo "<script> alert ('Xóa thành công!')</script>";echo "<script>window.open('teachers.php','_self')</script>";
-                                   
                                       }
                                    } 
                                    ?>
-                                   
-                                    
                                  </tbody>
-
-                               
-
                               </table>
                            </div>
                         </div>
@@ -154,4 +147,3 @@ include('connect.php');
    </body>
    <!-- Mirrored from preschool.dreamguystech.com/php-template/students.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:49 GMT -->
 </php>
-
