@@ -24,24 +24,26 @@ if (isset($_POST['update_subject'])) {
     $Suerid = $_POST['Suserid'];
 
     if ($_POST['Sname']=='') {
-        $Sname=$subjectname;
-    }
-    if ($_POST['Sdes']=='') {
-        $Sdes=$subjectdes;
-    }
-    if ($_POST['Suserid']=='') {
-        $Suerid=$userid;
-    }
-    $sql_up = " UPDATE subject SET subjectname = '$Sname',subjectdes= '$Sdes',userid='$Suerid' WHERE subjectid = $subjectid";
-    $update_subject = mysqli_query($conn, $sql_up);
 
-    if($update_subject){
-        header('location:subjects.php');
-        echo "<script>alert('Subject Has Been updated successfully!')</script>";
-    }
+		$Sname=$subjectname;
+	}
+	if ($_POST['Sdes']=='') {
+		$Sdes=$subjectdes;
+	}
+	if ($_POST['Suserid']=='') {
+		$Suerid=$userid;
+	}
+    $sql_up = " UPDATE subject SET subjectname = '$Sname',subjectdes= '$Sdes',userid='$Suerid' WHERE subjectid = $subjectid";
+	$update_subject = mysqli_query($conn, $sql_up);
+
+	if($update_subject){
+		header('location:subjects.php');
+		echo "<script>alert('Subject Has Been updated successfully!')</script>";
+	}
    else{
-        echo "loi";
-        echo "$subjectname||";
+		echo "loi";
+		echo "$subjectname||";
+
 
    }
 

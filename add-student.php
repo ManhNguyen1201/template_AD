@@ -308,12 +308,7 @@
                                     <h5 class="form-title"><span>Student Information</span></h5>
                                  </div>
                                  <form>
-                                 <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>User-ID</label>
-                                       <input type="text" class="form-control" name="userid">
-                                    </div>
-                                 </div>
+                                
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>User-Name</label>
@@ -366,18 +361,13 @@
                                        <input type="text" class="form-control" name ="phonenumber">
                                     </div>
                                  </div>
-                                 <!-- <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                       <label>User_Imgae</label>
-                                       <input type="file" class="form-control" name = "userimage">
-                                    </div>
-                                 </div> -->
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                       <label>Role</label>
-                                       <input type="text" class="form-control" name = "roleid">
+                                       <label>User_Imgae</label>
+                                       <input type="File" class="form-control" name = "userimage">
                                     </div>
-                                 </div>                                                             
+                                 </div>
+                                                                                          
                                  <div class="col-12">
                                     <button type="submit" class="btn btn-primary" name ="add_students">Submit</button>
                                  </div>
@@ -389,7 +379,7 @@
                              </div>
 
                            <?php
-                           include 'connect.php';
+                           include ('connect.php');
                            if (isset($_POST['add_students'])) {
                                $username = $_POST['username'];
                                $password = $_POST['password'];
@@ -399,10 +389,11 @@
                                $gender = $_POST['gender'];
                                $address = $_POST['address'];
                                $phonenumber = $_POST['phonenumber'];
-                               //$userimage = $_FILES['userimage'];
-                               $roleid = $_POST['roleid'];
-                               $sql = "INSERT INTO user VALUES(NULL,' $username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','','$roleid')";
-                               $insert_user = mysqli_query($conn, $sql);
+                              
+                         
+
+                               $sql = " INSERT INTO user VALUES (NULL,'$username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','$userimage') ";
+                               $insert_user = mysqli_query($connect, $sql);
                                if ($insert_user) {
                                    echo "<script>alert('Student Has Been inserted successfully!')</script>";
                                    header('location:students.php');
@@ -411,8 +402,8 @@
                                }
                            }
                            ?>
-                             
-                          
+                     
+                     
                        
                
             </div>
