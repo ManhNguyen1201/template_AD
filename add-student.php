@@ -302,7 +302,7 @@
                   <div class="col-sm-12">
                      <div class="card">
                         <div class="card-body">
-                           <form action="" method="POST">
+                           <form action="" method="POST" enctype="multipart/form-data">
                               <div class="row">
                                  <div class="col-12">
                                     <h5 class="form-title"><span>Student Information</span></h5>
@@ -395,7 +395,7 @@
                                  move_uploaded_file($file['tmp_name'],'assets/img/user/' .$file_name);
                          
 
-                               $sql = "INSERT INTO user VALUES (NULL,'$username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','$file_name') ";
+                               $sql = "INSERT INTO user VALUES (NULL,'$username','$password','$fullname','$email','$dob','$gender','$address','$phonenumber','$file_name',3) ";
                                $insert_user = mysqli_query($conn, $sql);
                                if ($insert_user) {
                                    echo "<script>alert('Student Has Been inserted successfully!')</script>";

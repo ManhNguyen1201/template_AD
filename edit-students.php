@@ -1,3 +1,74 @@
+<?php 
+session_start();
+include('connect.php');
+?>
+<?php
+                        include 'connect.php';
+                        $userid = $_GET['userid'];
+                        $sql = "SELECT * FROM user WHERE userid = $userid ";
+                        $result = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $userid = $row['userid'];
+                            $username = $row['username'];
+                            $password = $row['password'];
+                            $fullname = $row['fullname'];
+                            $email = $row['email'];
+                            $dob = $row['dob'];
+                            $gender = $row['gender'];
+                            $address = $row['address'];
+                            $phonenumber = $row['phonenumber'];
+                            $userimage = $row['userimage'];
+                            $roleid = $row['roleid'];
+                        }
+
+                              if (isset($_POST['edit'])) {
+                                  $Tuserid = $_POST['Tuserid'];
+                                  $Tusername = $_POST['Tusername'];
+                                  $Tpassword = $_POST['Tpassword'];
+                                  $Tfullname = $_POST['Tfullname'];
+                                  $Temail = $_POST['Temail'];
+                                  $Tdob = $_POST['Tdob'];
+                                  $Tgender = $_POST['Tgender'];
+                                  $Taddress = $_POST['Taddress'];
+                                  $Tphonenumber = $_POST['Tphonenumber'];
+                                 
+                                  if ($_POST['Tusername']=='') {
+									$Tusername=$username;
+									}
+									if ($_POST['Tpassword']=='') {
+									$Tpassword=$password;
+									}
+									if ($_POST['Tfullname']=='') {
+									$Tfullname=$fullname;
+									}
+									if ($_POST['Temail']=='') {
+									$Temail=$email;
+									}
+									if ($_POST['Tdob']=='') {
+									$Tdob=$dob;
+									}
+									if ($_POST['Tgender']=='') {
+									$Tgender=$gender;
+									}
+									if ($_POST['Taddress']=='') {
+									$Taddress=$address;
+									}
+									if ($_POST['Tphonenumber']=='') {
+									$Tphonenumber=$phonenumber;
+									}
+                              
+                             
+                              $sql = "UPDATE user SET username='$Tusername',password='$Tpassword',fullname='$Tfullname',email='$Temail',dob='$Tdob',gender='$Tgender',address='$Taddress',phonenumber='$Tphonenumber',roleid=3 WHERE userid = '$userid'";
+                              if (mysqli_query($conn, $sql)) {
+                                  header('location: students.php');
+                              } else {
+                                  $result =
+                                      ' Update unsuccesfull' .
+                                      mysqli_error($conn);
+                              }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
    <!-- Mirrored from preschool.dreamguystech.com/html-template/edit-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:50 GMT -->
@@ -301,46 +372,7 @@
                <div class="row">
                   <div class="col-sm-12">
                      <div class="card">
-                        <div class="card-body">
-                        <?php
-                        include 'connect.php';
-                        $ma_user = $_GET['userid'];
-                        $sql = "SELECT * FROM user WHERE userid = '$ma_user'";
-                        $result = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $ma_user = $row['userid'];
-                            $username = $row['username'];
-                            $password = $row['password'];
-                            $fullname = $row['fullname'];
-                            $email = $row['email'];
-                            $dob = $row['dob'];
-                            $gender = $row['gender'];
-                            $address = $row['address'];
-                            $phonenumber = $row['phonenumber'];
-                            $userimage = $row['userimage'];
-                            $roleid = $row['roleid'];
-
-                            if (isset($_POST['edit_students'])) {
-                               
-                              $username = $_POST['username'];
-                              $password = $_POST['password'];
-                              $fullname = $_POST['fullname'];
-                              $email = $_POST['email'];
-                              $dob = $_POST['dob'];
-                              $gender = $_POST['gender'];
-                              $address = $_POST['address'];
-                              $phonenumber = $_POST['phonenumber'];                              
-                          }                           
-                          $sql = "UPDATE `user` SET `username`='[username]',`password`='[password]',`fullname`='[fullname]',`email`='[email]',`dob`='[dob]',`gender`='[gender]',`address`='[address]',`phonenumber`='[phonenumber]' WHERE userid = '$userid'";
-                          if (mysqli_query($conn, $sql)) {
-                              header('location: students.php');
-                          } else {
-                              $result =
-                                  ' Update unsuccesfull' .
-                                  mysqli_error($conn);
-                          }
-                        }                          
-                        ?>
+                        <div class="card-body">                       
                            <form action="" method="POST">
                               <div class="row">
                                  <div class="col-12">
@@ -351,53 +383,53 @@
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>User-Name</label>
-                                       <input type="text" class="form-control" name="username" value="<?php echo $username; ?>">
+                                       <input type="text" class="form-control" name="Tusername" value="<?php echo $username; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>PassWord</label>
-                                       <input type="password" class="form-control" name="password" value="<?php echo $password; ?>">
+                                       <input type="password" class="form-control" name="Tpassword" value="<?php echo $password; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>FullName</label>
-                                       <input type="text" class="form-control" name="fullname" value = "<?php echo $fullname; ?>">
+                                       <input type="text" class="form-control" name="Tfullname" value = "<?php echo $fullname; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Email</label>
                                        <div>
-                                          <input type="text" class="form-control" name="email" value = "<?php echo $email; ?>">
+                                          <input type="text" class="form-control" name="Temail" value = "<?php echo $email; ?>">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Dob</label>
-                                       <input type="date" class="form-control" name = "dob" value = "<?php echo $dob; ?>">
+                                       <input type="date" class="form-control" name = "Tdob" value = "<?php echo $dob; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Gender</label>
-                                       <input type="text" class="form-control" name ="gender" value = "<?php echo $gender; ?>">
+                                       <input type="text" class="form-control" name ="Tgender" value = "<?php echo $gender; ?>">
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Address</label>
                                        <div>
-                                          <input type="text" class="form-control" name = "address" value = "<?php echo $address; ?>">
+                                          <input type="text" class="form-control" name = "Taddress" value = "<?php echo $address; ?>">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Mobile Number</label>
-                                       <input type="text" class="form-control" name ="phonenumber" value = "<?php echo $phonenumber; ?>">
+                                       <input type="text" class="form-control" name ="Tphonenumber" value = "<?php echo $phonenumber; ?>">
                                     </div>
                                  </div>
                                  <!-- <div class="col-12 col-sm-6">
@@ -405,15 +437,15 @@
                                        <label>User_Imgae</label>
                                        <input type="file" class="form-control" name = "userimage">
                                     </div>
-                                 </div> -->
+                                 </div>
                                  <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                        <label>Role</label>
                                        <input type="text" class="form-control" name = "roleid" value = "<?php echo $roleid; ?>">
                                     </div>
-                                 </div>                                                             
+                                 </div>                                                              -->
                                  <div class="col-12">
-                                    <button type="submit" class="btn btn-primary" name ="edit_students">SAVE</button>
+                                    <button type="submit" class="btn btn-primary" name ="edit">SAVE</button>
                                  </div>
                                  </div>
                                </form>

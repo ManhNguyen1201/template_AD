@@ -1,3 +1,8 @@
+<?php 
+session_start();
+include('connect.php');
+?>
+
 <!DOCTYPE php>
 <php lang="en">
    <!-- Mirrored from preschool.dreamguystech.com/php-template/students.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:43 GMT -->
@@ -330,7 +335,7 @@
                                  <tbody>  
                                     <?php
                                     include 'connect.php';
-                                    $sql = 'SELECT * FROM user ';
+                                    $sql = 'SELECT * FROM user WHERE roleid = 3 ';
                                     $result = mysqli_query($conn, $sql);
                                     while ($row = mysqli_fetch_array($result)) {
 
@@ -350,7 +355,7 @@
                                       <tr>                                     
                                        <td>
                                           <h2 class='table-avatar'>
-                                             <a href='student-details.php' class='avatar avatar-sm mr-2'><img class='avatar-img rounded-circle src='assets/img/profiles/$userimage' alt='User Image'></a>
+                                          <a href='teacher-details.php' class='avatar avatar-sm mr-2'><img src="assets/img/user/<?php echo $userimage ?>" alt="">
                                            
                                           </h2>
                                        </td>
@@ -367,7 +372,9 @@
 
                                        <td class='text-right'>
                                        <div class='actions'>
-                                           <a href="edit-students.php?userid=<?php echo $userid; ?>">Edit </a>
+                                           <a href="edit-students.php?userid=<?php echo $userid ?>" class="btn btn-sm bg-success-light mr-2">
+                                             <i class="fas fa-pen"></i>
+                                             </a>
                                            <a href="deletetudents.php?userid=<?php echo $userid; ?>">Xóa </a>                                    
                                        </div>
                                     </td>
