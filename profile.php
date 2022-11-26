@@ -30,10 +30,17 @@
                   </div>
                </div>
                <div class="row">
+
+               <?php 
+               include ('connect.php');
+               $userid = $_GET['userid'];
+               $sql = "SELECT * FROM user WHERE userid"
+               ?>
                   <div class="col-md-12">
                      <div class="profile-header">
                         <div class="row align-items-center">
                            <div class="col-auto profile-image">
+                            
                               <a href="#">
                               <img class="rounded-circle" alt="User Image" src="assets/img/profiles/avatar-02.jpg">
                               </a>
